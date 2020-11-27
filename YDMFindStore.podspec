@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "A short description of YDMFindStore."
   spec.homepage     = "http://EXAMPLE/YDMFindStore"
 
-  spec.license      = "MIT (example)"
+  spec.license          = "MIT"
   spec.author       = { "Douglas Hennrich" => "douglashennrich@yourdev.com.br" }
 
   spec.platform         = :ios, "11.0"
@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.public_header_files = "YDMFindStore/**/*.h"
   spec.swift_version    = "5.0"
 
-  spec.dependency "YDLocationModule"
+  # spec.dependency "YDLocationModule"
   spec.dependency "YDIntegration"
   spec.dependency "YDExtensions"
   spec.dependency "YDUtilities"
