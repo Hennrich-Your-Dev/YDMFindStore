@@ -20,7 +20,7 @@ target 'YDMFindStore' do
   use_frameworks!
 
   # Integration
-  pod 'YDIntegration', :path => '../../Integration/YDIntegration'
+  pod 'YDIntegration', :path => '../../YourDevB2W/Modules/Integration/YDIntegration'
 
   # Pods for YDMHome
   pod 'Alamofire', '4.9.1'

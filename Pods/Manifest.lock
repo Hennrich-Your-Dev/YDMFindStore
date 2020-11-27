@@ -99,7 +99,7 @@ DEPENDENCIES:
   - YDB2WAssets
   - YDB2WComponents
   - YDExtensions
-  - YDIntegration (from `../../Integration/YDIntegration`)
+  - YDIntegration (from `../../YourDevB2W/Modules/Integration/YDIntegration`)
   - YDLocationModule
   - YDUtilities
 
@@ -121,7 +121,7 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   YDIntegration:
-    :path: "../../Integration/YDIntegration"
+    :path: "../../YourDevB2W/Modules/Integration/YDIntegration"
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -138,6 +138,6 @@ SPEC CHECKSUMS:
   YDLocationModule: 1fe12e4e5275cb7c1e21f7a2a20cc3efcf385236
   YDUtilities: 081b8a4f325f9e0f913d44cd6dc70782d1df21cc
 
-PODFILE CHECKSUM: 535d9e1750e42510919542cfb6b59036f9b38209
+PODFILE CHECKSUM: bf69d4df8514ef47ce3be6941f361f6da6c818f6
 
 COCOAPODS: 1.10.0
