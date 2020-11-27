@@ -1,0 +1,6 @@
+framework module YDIntegration {
+  umbrella header "YDIntegration-umbrella.h"
+
+  export *
+  module * { export * }
+}

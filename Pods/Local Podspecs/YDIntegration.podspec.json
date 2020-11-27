@@ -1,0 +1,24 @@
+{
+  "name": "YDIntegration",
+  "version": "1.0.1",
+  "summary": "YDIntegration.",
+  "homepage": "https://yourdev.com.br",
+  "license": "MIT",
+  "authors": {
+    "Douglas Hennrich": "douglashennrich@yourdev.com.br"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "http": "file:/Users/douglashennrich/Documents/Projects/YourDev/YourDevB2W/Modules/Integration/YDIntegration/"
+  },
+  "source_files": "YDIntegration/**/*.{h,m,swift}",
+  "swift_versions": "5.0",
+  "dependencies": {
+    "YDExtensions": [
+      "~> 1.0.0"
+    ]
+  },
+  "swift_version": "5.0"
+}
