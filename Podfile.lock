@@ -88,8 +88,6 @@ PODS:
   - YDExtensions (1.0.21):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
-  - YDIntegration (1.0.1):
-    - YDExtensions (~> 1.0.0)
   - YDLocationModule (1.0.3)
   - YDUtilities (1.0.2):
     - Alamofire (~> 4.0)
@@ -99,7 +97,6 @@ DEPENDENCIES:
   - YDB2WAssets
   - YDB2WComponents
   - YDExtensions
-  - YDIntegration (from `../../YourDevB2W/Modules/Integration/YDIntegration`)
   - YDLocationModule
   - YDUtilities
 
@@ -119,10 +116,6 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
 
-EXTERNAL SOURCES:
-  YDIntegration:
-    :path: "../../YourDevB2W/Modules/Integration/YDIntegration"
-
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
@@ -134,10 +127,9 @@ SPEC CHECKSUMS:
   YDB2WAssets: edbea586bc61d06cdd077721fe7991a01e221b0d
   YDB2WComponents: f86fb00c175864c52d4851da46e9903a3a477e5b
   YDExtensions: d13e6aaaa47a088f3d1e8292bb9392174710f6eb
-  YDIntegration: 1c43d2af35697f78547fc8b16efc2c6b77b89c98
   YDLocationModule: 1fe12e4e5275cb7c1e21f7a2a20cc3efcf385236
   YDUtilities: 081b8a4f325f9e0f913d44cd6dc70782d1df21cc
 
-PODFILE CHECKSUM: bf69d4df8514ef47ce3be6941f361f6da6c818f6
+PODFILE CHECKSUM: 718d68d5aab1c4d7730913ab57b84ba605392a65
 
 COCOAPODS: 1.10.0

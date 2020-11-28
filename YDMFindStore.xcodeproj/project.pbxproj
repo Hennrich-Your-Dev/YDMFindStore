@@ -71,10 +71,10 @@
 		C155567F2571B84400CAEDE8 /* YDMFindStore */ = {
 			isa = PBXGroup;
 			children = (
+				C15556AE2571BDC200CAEDE8 /* Coordinator */,
 				C15556CC2571C09E00CAEDE8 /* ViewModel */,
 				C15556C72571C01700CAEDE8 /* ViewController */,
 				C15556C32571BF9400CAEDE8 /* View */,
-				C15556AE2571BDC200CAEDE8 /* Coordinator */,
 				C15556802571B84400CAEDE8 /* YDMFindStore.h */,
 				C15556812571B84400CAEDE8 /* Info.plist */,
 			);
