@@ -20,24 +20,14 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dBT-uJ-toC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7qv-HR-Th7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="QA2-jd-3ZQ"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKQ-9D-c0U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7qv-HR-Th7" firstAttribute="top" secondItem="KUn-S1-ePC" secondAttribute="top" id="1YI-xj-aVj"/>
                             <constraint firstAttribute="bottom" secondItem="dBT-uJ-toC" secondAttribute="bottom" id="5hS-l9-DjQ"/>
-                            <constraint firstItem="7qv-HR-Th7" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="7fW-7A-p5D"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="JYr-YG-Vda"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="top" secondItem="KUn-S1-ePC" secondAttribute="top" id="wKP-lG-6Pu"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="trailing" secondItem="oKQ-9D-c0U" secondAttribute="trailing" id="xCg-fR-oVa"/>
-                            <constraint firstItem="7qv-HR-Th7" firstAttribute="trailing" secondItem="oKQ-9D-c0U" secondAttribute="trailing" id="yyI-S6-inx"/>
                         </constraints>
                     </view>
                     <connections>

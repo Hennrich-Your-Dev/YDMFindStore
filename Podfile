@@ -11,7 +11,6 @@ target 'YDMFindStore' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-#  pod 'YDIntegration', :path => '../../YourDevB2W/Modules/Integration/YDIntegration'
   pod 'YDLocationModule'
   pod 'YDUtilities'
   pod 'YDExtensions'

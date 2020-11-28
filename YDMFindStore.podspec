@@ -4,7 +4,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMFindStore"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "YDMFindStore."
   spec.homepage     = "http://yourdev/YDMFindStore"
 
@@ -17,7 +17,6 @@ Pod::Spec.new do |spec|
   spec.swift_version    = "5.0"
 
   spec.dependency "YDLocationModule"
-#  spec.dependency "YDIntegration"
   spec.dependency "YDExtensions"
   spec.dependency "YDUtilities"
   spec.dependency "YDB2WAssets"
