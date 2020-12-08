@@ -7,6 +7,7 @@
 
 import UIKit
 import YDExtensions
+import YDB2WAssets
 
 class CustomUITextField: UITextField {
   override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
@@ -41,7 +42,8 @@ public class YDMessageField: UIView {
 
   public var delayInterval: TimeInterval = 5
 
-  var hasUserPhoto: Bool = false
+  var hasUserPhoto = false
+  var likeButtonEnabled = true
 
   var actionButtonType: ActionButtonType = .like {
     didSet {
@@ -61,19 +63,24 @@ public class YDMessageField: UIView {
 
       let icon: UIImage? = {
         if actionButtonType == .send {
-          return UIImage.Icon.send
+          return Icons.chatWired
         }
 
         if actionButtonType == .like {
-          return UIImage.Icon.thumbsUp
+          return Icons.thumbUpWired
         }
 
-        return UIImage.Icon.reload
+        return Icons.reload
       }()
 
-      actionButton.setImage(actionButtonType == .like ? UIImage.Icon.thumbsUpRed : nil, for: .selected)
+      let likeIcon: UIImage? = likeButtonEnabled ? Icons.thumbUpWired : nil
+
+      actionButton.setImage(likeIcon, for: .selected)
       actionButton.setImage(icon, for: .normal)
       actionButton.isHidden = false
+
+      actionButton.tintColor = actionButton.isEnabled ? UIColor.Zeplin.colorPrimaryLight : UIColor.Zeplin.greyDisabled
+
       messageField.textColor = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1)
     }
   }
@@ -154,6 +161,7 @@ public class YDMessageField: UIView {
     }
 
     if let message = messageField.text, !message.isEmpty {
+      actionButton.isEnabled = false
       changeStage(.sending)
       delegate?.sendMessage(message)
     }
@@ -213,12 +221,23 @@ public class YDMessageField: UIView {
       changeStage(.normal)
     }
   }
+
+  public func disableLikeButton() {
+    likeButtonEnabled = false
+    actionButton.isEnabled = false
+    changeStage(.typing)
+  }
 }
 
 // MARK: Stages
 extension YDMessageField {
   func normalStage() {
-    actionButtonType = .like
+    if (messageField.text?.isEmpty ?? true) && !likeButtonEnabled {
+      actionButton.isEnabled = false
+    } else {
+      actionButton.isEnabled = true
+    }
+    actionButtonType = likeButtonEnabled ? .like : .send
 
     activityIndicator.stopAnimating()
 
@@ -264,6 +283,7 @@ extension YDMessageField {
 
   func errorStage() {
     activityIndicator.stopAnimating()
+    actionButton.isEnabled = true
     actionButtonType = .reload
     errorMessageLabel.isHidden = false
     delayMessageLabel.isHidden = true
@@ -278,10 +298,15 @@ extension YDMessageField {
 extension YDMessageField: UITextFieldDelegate {
   @objc func onTextFieldChange(_ textField: UITextField) {
     if textField.text?.count == 1 {
+      actionButton.isEnabled = true
       changeStage(.typing)
     } else {
       if actionButtonType == .reload {
         errorMessageLabel.isHidden = true
+      }
+
+      if (textField.text?.isEmpty ?? false) && !likeButtonEnabled {
+        actionButton.isEnabled = false
       }
 
       actionButtonType = .send
@@ -292,6 +317,11 @@ extension YDMessageField: UITextFieldDelegate {
 
   @objc func onTextFieldFocus() {
     messageLimitCount.isHidden = false
+
+    if messageField.text?.isEmpty ?? true {
+      actionButton.isEnabled = false
+    }
+
     changeStage(.typing)
   }
 

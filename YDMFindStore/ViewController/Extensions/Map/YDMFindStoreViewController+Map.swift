@@ -11,20 +11,34 @@ import CoreLocation
 
 extension YDMFindStoreViewController {
   func createMapGradient() {
-    let gradient = CAGradientLayer()
+    let gradientTop = CAGradientLayer()
 
-    gradient.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 3)
-    gradient.opacity = 0.75
+    gradientTop.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 3)
+    gradientTop.opacity = 0.75
 
-    gradient.colors = [
+    gradientTop.colors = [
       UIColor.black.withAlphaComponent(1).cgColor,
       UIColor.black.withAlphaComponent(0.7).cgColor,
       UIColor.black.withAlphaComponent(0.3).cgColor,
       UIColor.black.withAlphaComponent(0.0).cgColor
     ]
-    gradient.locations = [0, 0.3, 0.6, 1]
+    gradientTop.locations = [0, 0.3, 0.6, 1]
 
-    mapView?.layer.addSublayer(gradient)
+    let gradientBottom = CAGradientLayer()
+
+    gradientBottom.frame = CGRect(x: 0, y: view.frame.maxY, width: view.frame.width, height: view.frame.height / 3)
+    gradientBottom.opacity = 0.75
+
+    gradientBottom.colors = [
+      UIColor.black.withAlphaComponent(0).cgColor,
+      UIColor.black.withAlphaComponent(0.3).cgColor,
+      UIColor.black.withAlphaComponent(0.7).cgColor,
+      UIColor.black.withAlphaComponent(1).cgColor
+    ]
+    gradientBottom.locations = [0, 0.3, 0.6, 1]
+
+    mapView?.layer.addSublayer(gradientTop)
+    mapView?.layer.addSublayer(gradientBottom)
   }
 
   func zoomToUsersLocation(_ coordinate: CLLocationCoordinate2D) {

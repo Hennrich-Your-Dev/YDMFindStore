@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import YDB2WAssets
 import YDUtilities
 import YDExtensions
 import YDLocationModule
@@ -31,7 +32,40 @@ class YDMFindStoreViewController: UIViewController {
   }
 
   // MARK: IBOutlets
-  @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var mapView: MKMapView! {
+    didSet {
+      mapView.showsUserLocation = true
+      mapView.tintColor = UIColor.Zeplin.redBranding
+    }
+  }
+
+  @IBOutlet weak var navBarContainer: UIView! {
+    didSet {
+      navBarContainer.backgroundColor = .clear
+    }
+  }
+
+  @IBOutlet weak var exitButton: UIButton! {
+    didSet {
+      exitButton.layer.cornerRadius = exitButton.frame.height / 2
+      exitButton.setImage(Icons.leftArrow, for: .normal)
+    }
+  }
+
+  @IBOutlet weak var listButton: UIButton! {
+    didSet {
+      listButton.layer.cornerRadius = 16
+      listButton.setImage(Icons.bars, for: .normal)
+    }
+  }
+
+  // MARK: IBActions
+
+  @IBAction func onExitAction(_ sender: Any) {
+  }
+
+  @IBAction func onListAction(_ sender: Any) {
+  }
 }
 
 // MARK: Actions

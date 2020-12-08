@@ -7,11 +7,36 @@
 
 import UIKit
 
+private let podsBundle = Bundle(for: Icons.self)
+
 public class Icons {
-  private static let podsBundle = Bundle(for: Icons.self)
 
-  public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)
+  public static let bars = UIImage(named: "iconBars", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let chatBalloon = UIImage(named: "iconChatBalloon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let chatWired = UIImage(named: "iconChatWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let circleDefault = UIImage(named: "iconCircleDefault", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let circleDefaultOff = UIImage(named: "iconCircleDefaultOff", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let leftArrow = UIImage(named: "iconLeftArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let reload = UIImage(named: "iconReload", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbUpFilled = UIImage(named: "thumbUpFilled", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbDownWired = UIImage(named: "iconThumbDownWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let thumbUpWired = UIImage(named: "iconThumbUpWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
+  public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+}
+
+public class Images {
   public static let starYellow = UIImage(named: "starYellow", in: podsBundle, compatibleWith: nil)
 
   public static let starGrey = UIImage(named: "starGrey", in: podsBundle, compatibleWith: nil)
