@@ -82,23 +82,28 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - YDB2WAssets (1.0.13)
+  - YDB2WAssets (1.0.14)
   - YDB2WComponents (1.0.45):
     - Cosmos (= 22.1.0)
     - MaterialComponents/Snackbar
     - YDB2WAssets
     - YDExtensions
+  - YDB2WIntegration (1.0.0):
+    - YDExtensions
+  - YDB2WModels (1.0.3)
   - YDExtensions (1.0.21):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.3)
-  - YDUtilities (1.0.2):
+  - YDUtilities (1.0.3):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - YDB2WAssets
   - YDB2WComponents
+  - YDB2WIntegration
+  - YDB2WModels
   - YDExtensions
   - YDLocationModule
   - YDUtilities
@@ -107,6 +112,8 @@ SPEC REPOS:
   "git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git":
     - YDB2WAssets
     - YDB2WComponents
+    - YDB2WIntegration
+    - YDB2WModels
     - YDExtensions
     - YDLocationModule
     - YDUtilities
@@ -129,12 +136,14 @@ SPEC CHECKSUMS:
   MaterialComponents: a7206e4d3491b63c7cedc8d80032cbc0178a9497
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  YDB2WAssets: 14213c3e34abdf699e7a22659c0d048ff2a893aa
+  YDB2WAssets: ff2f31dc232c2817b9e2c83a7dcaefc0c2196731
   YDB2WComponents: 493a2e3b58f11dbe19b07054d080170b7d1c1b77
+  YDB2WIntegration: acf8a88299a1f4d9a622121786805d9b989cb9e8
+  YDB2WModels: 0cef324b17a4101691f181d63661f28e4e34a560
   YDExtensions: d13e6aaaa47a088f3d1e8292bb9392174710f6eb
   YDLocationModule: 1fe12e4e5275cb7c1e21f7a2a20cc3efcf385236
-  YDUtilities: 081b8a4f325f9e0f913d44cd6dc70782d1df21cc
+  YDUtilities: 8c69c5935ca6e2a0b5b5c91c3e05d48a83a2ee4e
 
-PODFILE CHECKSUM: 5f5afb32602284a18b962796e233f73e2fb8855c
+PODFILE CHECKSUM: f8a2f0baa1568dceff8ac7b9553b6e2f458b6baf
 
 COCOAPODS: 1.10.0

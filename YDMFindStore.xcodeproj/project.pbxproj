@@ -8,17 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		414A821D9C0C607B997E36B0 /* Pods_YDMFindStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */; };
+		C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */; };
+		C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */; };
+		C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */; };
+		C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13514C5258111130018EA0E /* YDMFindStoreService.swift */; };
 		C15556822571B84400CAEDE8 /* YDMFindStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C15556802571B84400CAEDE8 /* YDMFindStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556AF2571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift */; };
 		C15556C52571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15556C42571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard */; };
 		C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556C82571C02800CAEDE8 /* YDMFindStoreViewController.swift */; };
 		C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */; };
 		C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */; };
+		C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7951D64C2F15680A7E99E91E /* Pods-YDMFindStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDMFindStore.debug.xcconfig"; path = "Target Support Files/Pods-YDMFindStore/Pods-YDMFindStore.debug.xcconfig"; sourceTree = "<group>"; };
 		8425EAD9FBD8BE81661A8E5A /* Pods-YDMFindStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDMFindStore.release.xcconfig"; path = "Target Support Files/Pods-YDMFindStore/Pods-YDMFindStore.release.xcconfig"; sourceTree = "<group>"; };
+		C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewModel+Location.swift"; sourceTree = "<group>"; };
+		C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderViewModel.swift; sourceTree = "<group>"; };
+		C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderService.swift; sourceTree = "<group>"; };
+		C13514C5258111130018EA0E /* YDMFindStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreService.swift; sourceTree = "<group>"; };
 		C155567D2571B84400CAEDE8 /* YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15556802571B84400CAEDE8 /* YDMFindStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDMFindStore.h; sourceTree = "<group>"; };
 		C15556812571B84400CAEDE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +36,7 @@
 		C15556C82571C02800CAEDE8 /* YDMFindStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreViewController.swift; sourceTree = "<group>"; };
 		C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreViewModel.swift; sourceTree = "<group>"; };
 		C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Map.swift"; sourceTree = "<group>"; };
+		C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Location.swift"; sourceTree = "<group>"; };
 		EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,6 +58,64 @@
 				EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1351484258067990018EA0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1351485258067A00018EA0E /* Location */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1351485258067A00018EA0E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		C13514A2258106E20018EA0E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C13514C4258110EA0018EA0E /* FindStore */,
+				C13514A3258106FC0018EA0E /* Geocoder */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C13514A3258106FC0018EA0E /* Geocoder */ = {
+			isa = PBXGroup;
+			children = (
+				C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */,
+			);
+			path = Geocoder;
+			sourceTree = "<group>";
+		};
+		C13514C4258110EA0018EA0E /* FindStore */ = {
+			isa = PBXGroup;
+			children = (
+				C13514C5258111130018EA0E /* YDMFindStoreService.swift */,
+			);
+			path = FindStore;
+			sourceTree = "<group>";
+		};
+		C13514DA2581181D0018EA0E /* FindStore */ = {
+			isa = PBXGroup;
+			children = (
+				C1351484258067990018EA0E /* Extensions */,
+				C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */,
+			);
+			path = FindStore;
+			sourceTree = "<group>";
+		};
+		C13514DC2581182C0018EA0E /* Geocoder */ = {
+			isa = PBXGroup;
+			children = (
+				C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */,
+			);
+			path = Geocoder;
 			sourceTree = "<group>";
 		};
 		C15556732571B84400CAEDE8 = {
@@ -72,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				C15556AE2571BDC200CAEDE8 /* Coordinator */,
+				C13514A2258106E20018EA0E /* Service */,
 				C15556CC2571C09E00CAEDE8 /* ViewModel */,
 				C15556C72571C01700CAEDE8 /* ViewController */,
 				C15556C32571BF9400CAEDE8 /* View */,
@@ -109,7 +178,8 @@
 		C15556CC2571C09E00CAEDE8 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */,
+				C13514DA2581181D0018EA0E /* FindStore */,
+				C13514DC2581182C0018EA0E /* Geocoder */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -117,6 +187,7 @@
 		C15556D22571C25700CAEDE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1608A6325800F8B0047444E /* Location */,
 				C15556D32571C25D00CAEDE8 /* Map */,
 			);
 			path = Extensions;
@@ -128,6 +199,14 @@
 				C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		C1608A6325800F8B0047444E /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */,
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		E95E0DCEAB0CA37028E8D32B /* Pods */ = {
@@ -245,7 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */,
 				C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */,
+				C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */,
+				C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */,
+				C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */,
+				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,
 				C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */,

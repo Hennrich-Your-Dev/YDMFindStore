@@ -6,8 +6,10 @@
 //
 
 import UIKit
-//import YDIntegration
+
+import YDB2WIntegration
 import YDExtensions
+import YDUtilities
 
 public typealias YDMFindStore = YDMFindStoreCoordinator
 
@@ -32,10 +34,10 @@ public class YDMFindStoreCoordinator {
 
   // MARK: Actions
   public func start(navCon: UINavigationController? = nil) {
-    guard let viewController = YDMFindStoreViewController.initializeFromStoryboard()
-//          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
-//          let addressUrl = config.extras?[YDConfigProperty.addressUrl.rawValue] as? String,
-//          let npsEnabled = config.extras?[YDConfigProperty.storeNPSEnabled.rawValue] as? Bool
+    guard let viewController = YDMFindStoreViewController.initializeFromStoryboard(),
+          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
+          let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
+          let addressUrl = config.extras?[YDConfigProperty.addressUrl.rawValue] as? String
     else {
       fatalError("YDMFindStoreViewController.initializeFromStoryboard")
     }
@@ -43,15 +45,20 @@ public class YDMFindStoreCoordinator {
     let topViewController = UIApplication.shared.keyWindow?
       .rootViewController?.topMostViewController()
 
-//    let service = YDMServiceClient()
-//    let serviceHome = YDMHomeService(service: service)
+    let service = YDServiceClient()
 
-//    let serviceReverseGeocoder = YDMReverseGeocoderService(
-//      service: service,
-//      reverseGeocodeUrl: addressUrl
-//    )
+    let serviceFindStore = YDMFindStoreService(service: service, storesUrl: storesUrl)
 
-    findStoreViewModel = YDMFindStoreViewModel()
+    let serviceReverseGeocoder = YDMFindStoreReverseGeocoderService(
+      service: service,
+      reverseGeocodeUrl: addressUrl
+    )
+
+    findStoreViewModel = YDMFindStoreViewModel(
+      navigation: self,
+      service: serviceFindStore,
+      geocoder: serviceReverseGeocoder
+    )
     viewController.viewModel = findStoreViewModel
 
     if let nav = navCon {
@@ -65,12 +72,12 @@ public class YDMFindStoreCoordinator {
   }
 }
 
-//extension YDMFindStoreCoordinator: YDMHomeNavigationDelegate {
-//
-//  func exit() {
-//    rootViewController.dismiss(animated: true, completion: nil)
-//  }
-//
+extension YDMFindStoreCoordinator: YDMFindStoreNavigationDelegate {
+
+  func onExit() {
+    rootViewController.dismiss(animated: true, completion: nil)
+  }
+
 //  func openRating() {
 //    guard let viewController = YDMRatingViewController.initializeFromStoryboard() else {
 //      fatalError("YDMRatingViewController.initializeFromStoryboard")
@@ -82,4 +89,4 @@ public class YDMFindStoreCoordinator {
 //
 //    navigationController.pushViewController(viewController, animated: true)
 //  }
-//}
+}

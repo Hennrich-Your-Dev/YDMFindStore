@@ -59,12 +59,24 @@ class YDMFindStoreViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var locationContainer: UIView!
+
+  @IBOutlet weak var locationPinIcon: UIImageView!
+
+  @IBOutlet weak var locationButton: UIButton!
+
+  @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
+
+  @IBOutlet weak var locationChevronIcon: UIImageView!
+  
   // MARK: IBActions
 
   @IBAction func onExitAction(_ sender: Any) {
+    viewModel?.onExit()
   }
 
   @IBAction func onListAction(_ sender: Any) {
+    viewModel?.onList()
   }
 }
 

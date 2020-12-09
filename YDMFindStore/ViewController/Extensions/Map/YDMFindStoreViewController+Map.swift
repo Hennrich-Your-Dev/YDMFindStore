@@ -24,15 +24,21 @@ extension YDMFindStoreViewController {
     ]
     gradientTop.locations = [0, 0.3, 0.6, 1]
 
-    let gradientBottom = CAGradientLayer()
+    let height = view.frame.height / 5
 
-    gradientBottom.frame = CGRect(x: 0, y: view.frame.maxY, width: view.frame.width, height: view.frame.height / 3)
+    let gradientBottom = CAGradientLayer()
+    gradientBottom.frame = CGRect(
+      x: 0,
+      y: view.frame.maxY - height,
+      width: view.frame.width,
+      height: height
+    )
     gradientBottom.opacity = 0.75
 
     gradientBottom.colors = [
       UIColor.black.withAlphaComponent(0).cgColor,
-      UIColor.black.withAlphaComponent(0.3).cgColor,
-      UIColor.black.withAlphaComponent(0.7).cgColor,
+      UIColor.black.withAlphaComponent(0.1).cgColor,
+      UIColor.black.withAlphaComponent(0.5).cgColor,
       UIColor.black.withAlphaComponent(1).cgColor
     ]
     gradientBottom.locations = [0, 0.3, 0.6, 1]

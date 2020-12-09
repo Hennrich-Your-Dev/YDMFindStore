@@ -11,11 +11,13 @@ target 'YDMFindStore' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  pod 'YDB2WIntegration'
   pod 'YDLocationModule'
   pod 'YDUtilities'
   pod 'YDExtensions'
   pod 'YDB2WAssets'
   pod 'YDB2WComponents'
+  pod 'YDB2WModels'
 
   # Pods for YDMHome
   pod 'Alamofire', '4.9.1'
