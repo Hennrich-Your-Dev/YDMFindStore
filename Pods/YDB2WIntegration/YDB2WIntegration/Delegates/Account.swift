@@ -8,12 +8,14 @@
 
 import Foundation
 
+import YDB2WModels
+
 public protocol YDIntegrationHelperAccountDelegate {
   func getCustomer(completion: ((YDCurrentCustomer?) -> Void)?)
-  func getAddress(completion: ((YDCurrentAddress?) -> Void)?)
+  func getAddress(completion: ((YDAddress?) -> Void)?)
 }
 
 public extension YDIntegrationHelperAccountDelegate {
   func getCustomer(completion: ((YDCurrentCustomer?) -> Void)?) {}
-  func getAddress(completion: ((YDCurrentAddress?) -> Void)?) {}
+  func getAddress(completion: ((YDAddress?) -> Void)?) {}
 }

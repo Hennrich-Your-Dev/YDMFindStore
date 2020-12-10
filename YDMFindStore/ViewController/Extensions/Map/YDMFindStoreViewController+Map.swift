@@ -59,3 +59,12 @@ extension YDMFindStoreViewController {
     mapView.setRegion(viewRegion, animated: false)
   }
 }
+
+extension YDMFindStoreViewController: MKMapViewDelegate {
+  func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+    if !alreadyPlaceCurrentLocationMarker {
+      alreadyPlaceCurrentLocationMarker = true
+      zoomToUsersLocation(userLocation.coordinate)
+    }
+  }
+}

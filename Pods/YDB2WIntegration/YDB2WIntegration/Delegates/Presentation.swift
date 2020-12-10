@@ -8,16 +8,18 @@
 
 import UIKit
 
+import YDB2WModels
+
 public protocol YDIntegrationHelperPresentationDelegate {
   func presentScanner()
   func presentStoreMode()
   func presentLive(navigationController: UINavigationController)
-  func presentSelectAddress(completion: ((YDCurrentAddress?) -> Void)?)
+  func presentSelectAddress(completion: ((YDAddress?) -> Void)?)
 }
 
 public extension YDIntegrationHelperPresentationDelegate {
   func presentScanner() {}
   func presentStoreMode() {}
   func presentLive(navigationController: UINavigationController) {}
-  func presentSelectAddress(completion: ((YDCurrentAddress?) -> Void)?) {}
+  func presentSelectAddress(completion: ((YDAddress?) -> Void)?) {}
 }

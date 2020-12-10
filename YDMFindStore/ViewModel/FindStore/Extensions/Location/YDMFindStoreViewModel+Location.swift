@@ -17,13 +17,13 @@ extension YDMFindStoreViewModel {
   func callAddressModuleFromB2W() {
     YDIntegrationHelper.shared.onAddressModule { [weak self] addressComponentOpt in
       guard let addressComponent = addressComponentOpt,
-            let coordinates = addressComponent.coordinates
+            let coordinates = addressComponent.coords
       else {
         self?.location.fire()
         return
       }
 
-      let address = addressComponent.transformAddress
+      let address = addressComponent.formatAddress
       let type = addressComponent.type
 
       self?.searchForNewStore(
@@ -44,7 +44,8 @@ extension YDMFindStoreViewModel {
       case .success(let stores):
         var currentAddress = address
 
-        if let storeAddress = stores.first?.formatAddress {
+        if currentAddress == nil,
+          let storeAddress = stores.first?.formatAddress {
           currentAddress = storeAddress
         }
 

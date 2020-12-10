@@ -16,6 +16,7 @@ import YDExtensions
 class YDMFindStoreViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDMFindStoreViewModelDelegate?
+  var alreadyPlaceCurrentLocationMarker = false
 
   // MARK: Life cycle
   override func viewDidLoad() {
@@ -25,6 +26,7 @@ class YDMFindStoreViewController: UIViewController {
     setUpBinds()
 
     locationActivity()
+    viewModel?.getPreviousAddress()
   }
 
   // MARK: IBOutlets
@@ -32,6 +34,7 @@ class YDMFindStoreViewController: UIViewController {
     didSet {
       mapView.showsUserLocation = true
       mapView.tintColor = UIColor.Zeplin.redBranding
+      mapView.delegate = self
     }
   }
 

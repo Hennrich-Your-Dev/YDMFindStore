@@ -8,9 +8,11 @@
 import Foundation
 import CoreLocation
 
+import YDB2WModels
+
 // MARK: Open address module
 public extension YDIntegrationHelper {
-  func onAddressModule(onCompletion: ((YDCurrentAddress?) -> Void)?) {
+  func onAddressModule(onCompletion: ((YDAddress?) -> Void)?) {
     presentationDelegate?.presentSelectAddress { [weak self] address in
       self?.currentAddres = address
       onCompletion?(address)
@@ -20,7 +22,7 @@ public extension YDIntegrationHelper {
 
 // MARK: Get address
 public extension YDIntegrationHelper {
-  func getAddress(completion: ((YDCurrentAddress?) -> Void)?) {
+  func getAddress(completion: ((YDAddress?) -> Void)?) {
     if let address = self.currentAddres {
       completion?(address)
     } else {
@@ -36,7 +38,7 @@ public extension YDIntegrationHelper {
     withAddress name: String,
     withType type: YDAddressType
   ) {
-    currentAddres = YDCurrentAddress(
+    currentAddres = YDAddress(
       type: type,
       address: name,
       latitude: coords.latitude,

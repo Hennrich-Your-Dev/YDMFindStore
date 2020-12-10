@@ -27,6 +27,7 @@ protocol YDMFindStoreViewModelDelegate {
   func onExit()
   func onList()
   func onGetLocation()
+  func onGetCurrentLocation()
 }
 
 // MARK: View Model
@@ -59,15 +60,15 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
   func getPreviousAddress() {
     YDIntegrationHelper.shared.getAddress { [weak self] currentAddress in
       guard let address = currentAddress,
-            let coordinates = address.coordinates
+            let coordinates = address.coords
       else {
-        self?.location.fire()
+        self?.onGetLocation()
         return
       }
 
       self?.searchForNewStore(
         with: coordinates,
-        givingAddress: address.transformAddress,
+        givingAddress: address.formatAddress,
         givingType: address.type
       )
     }
@@ -95,5 +96,13 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
     }
 
     callAddressModuleFromB2W()
+  }
+
+  func onGetCurrentLocation() {
+    if locationManager.delegate == nil {
+      locationManager.delegate = self
+    }
+
+    locationManager.start()
   }
 }

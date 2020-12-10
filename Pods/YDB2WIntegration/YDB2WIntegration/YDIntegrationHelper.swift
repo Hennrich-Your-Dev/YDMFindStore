@@ -8,10 +8,12 @@
 import Foundation
 import CoreLocation
 
+import YDB2WModels
+
 public class YDIntegrationHelper {
   // MARK: Properties
   public static let shared = YDIntegrationHelper()
-  public var currentAddres: YDCurrentAddress?
+  public var currentAddres: YDAddress?
   public var currentStoreNPS: [YDMNPSListConfig]?
 
   // MARK: Delegates
