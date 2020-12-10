@@ -20,6 +20,7 @@ protocol YDMFindStoreNavigationDelegate {
 
 protocol YDMFindStoreViewModelDelegate {
   var location: Binder<YDLocationViewModel?> { get }
+  var stores: Binder<[YDStore]> { get }
 
   func getPreviousAddress()
 
@@ -39,6 +40,7 @@ class YDMFindStoreViewModel {
   let geocoder: YDMFindStoreReverseGeocoderServiceDelegate
 
   var location: Binder<YDLocationViewModel?> = Binder(nil)
+  var stores: Binder<[YDStore]> = Binder([])
 
   private let locationManager = YDLocation.shared
   private var alreadyGetUsersPosition = false

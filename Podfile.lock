@@ -82,13 +82,13 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - YDB2WAssets (1.0.14)
+  - YDB2WAssets (1.0.15)
   - YDB2WComponents (1.0.46):
     - Cosmos (= 22.1.0)
     - MaterialComponents/Snackbar
     - YDB2WAssets
     - YDExtensions
-  - YDB2WIntegration (1.0.1):
+  - YDB2WIntegration (1.0.2):
     - YDB2WModels
     - YDExtensions
   - YDB2WModels (1.0.4)
@@ -137,9 +137,9 @@ SPEC CHECKSUMS:
   MaterialComponents: a7206e4d3491b63c7cedc8d80032cbc0178a9497
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  YDB2WAssets: ff2f31dc232c2817b9e2c83a7dcaefc0c2196731
+  YDB2WAssets: 7ce0c89cea7c4163425d5fb9f4328df67d89fb90
   YDB2WComponents: e2ef3b6e8fe804b03e8b0f1e7935d3407f3ebc6c
-  YDB2WIntegration: 90ea910b7d25c78b2c30b363cb0da5a5db0612fd
+  YDB2WIntegration: e90e6be66618c6ad46f9ddf7dff339b951d8ba51
   YDB2WModels: 569a610d8917ba7b4e9f70663b82145b40309c80
   YDExtensions: d13e6aaaa47a088f3d1e8292bb9392174710f6eb
   YDLocationModule: 1fe12e4e5275cb7c1e21f7a2a20cc3efcf385236

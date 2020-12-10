@@ -32,6 +32,14 @@ extension YDMFindStoreViewController {
         !address.isEmpty {
         self.locationButton.setTitle(address, for: .normal)
       }
+
+      if let store = location.store {
+        self.fetchDirection(to: store)
+      }
+    }
+
+    viewModel?.stores.bind { [weak self] stores in
+      self?.addPinsOnMap(with: stores)
     }
   }
 }

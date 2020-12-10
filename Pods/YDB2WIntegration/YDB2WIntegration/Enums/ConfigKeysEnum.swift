@@ -36,6 +36,7 @@ public enum YDConfigProperty: String {
   case liveHotsiteUrl
   case liveProductsUrl
 
+  case liveSpaceyOrder
   case liveChatPoolling
   case liveChatLimit
   case liveChatOffset

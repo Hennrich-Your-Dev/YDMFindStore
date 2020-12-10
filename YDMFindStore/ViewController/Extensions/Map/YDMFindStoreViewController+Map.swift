@@ -9,6 +9,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import YDB2WAssets
+import YDB2WModels
+import YDExtensions
+
 extension YDMFindStoreViewController {
   func createMapGradient() {
     let gradientTop = CAGradientLayer()
@@ -58,6 +62,73 @@ extension YDMFindStoreViewController {
 
     mapView.setRegion(viewRegion, animated: false)
   }
+
+  func fetchDirection(to store: YDStore) {
+    guard let latitude = store.geolocation?.latitude,
+          let longitude = store.geolocation?.longitude
+    else {
+      return
+    }
+
+    let request = MKDirections.Request()
+    let coords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+    request.source = MKMapItem.forCurrentLocation()
+    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coords))
+
+    request.transportType = .automobile
+
+    let directions = MKDirections(request: request)
+
+    directions.calculate { [weak self] response, error in
+      guard let self = self,
+            let response = response,
+            let route = response.routes.first
+      else {
+        return
+      }
+
+      self.mapView.addOverlay(route.polyline)
+
+      let wPadding = route.polyline.boundingMapRect.size.width * 0.55
+      let hPadding = route.polyline.boundingMapRect.size.height * 0.25
+
+      var rect = route.polyline.boundingMapRect
+      rect.size.width += wPadding
+      rect.size.height += hPadding
+
+      rect.origin.x -= wPadding / 2
+      rect.origin.y -= hPadding / 2
+
+      self.mapView.setVisibleMapRect(rect, animated: true)
+    }
+  }
+
+  func addPinsOnMap(with stores: [YDStore]) {
+    mapView.removeAnnotations(annotations)
+
+    for (index, store) in stores.enumerated() {
+      guard let latitude = store.geolocation?.latitude,
+            let longitude = store.geolocation?.longitude
+      else {
+        continue
+      }
+
+//      let pinFrame = CGRect(
+//        x: 0,
+//        y: 0,
+//        width: index == 0 ? 40 : 30,
+//        height: index == 0 ? 55 : 41
+//      )
+
+      let pin = MKPointAnnotation()
+      pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+      annotations.append(pin)
+    }
+
+    mapView.addAnnotations(annotations)
+  }
 }
 
 extension YDMFindStoreViewController: MKMapViewDelegate {
@@ -66,5 +137,34 @@ extension YDMFindStoreViewController: MKMapViewDelegate {
       alreadyPlaceCurrentLocationMarker = true
       zoomToUsersLocation(userLocation.coordinate)
     }
+  }
+
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+    renderer.strokeColor = UIColor.Zeplin.redBranding
+    renderer.lineWidth = 2
+    return renderer
+  }
+
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    if !(annotation is MKPointAnnotation) {
+      return nil
+    }
+
+    let annotationIdentifier = "AnnotationIdentifier"
+    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+
+    if annotationView == nil {
+      annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+      annotationView!.canShowCallout = true
+      
+    } else {
+      annotationView!.annotation = annotation
+    }
+
+    let pinImage = Images.storePin
+    annotationView!.image = pinImage
+
+    return annotationView
   }
 }

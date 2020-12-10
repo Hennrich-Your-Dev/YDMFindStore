@@ -17,6 +17,7 @@ class YDMFindStoreViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDMFindStoreViewModelDelegate?
   var alreadyPlaceCurrentLocationMarker = false
+  var annotations: [MKAnnotation] = []
 
   // MARK: Life cycle
   override func viewDidLoad() {

@@ -39,25 +39,30 @@ extension YDMFindStoreViewModel {
     givingAddress address: String? = nil,
     givingType type: YDAddressType? = .unknown
   ) {
-    service.getNearstLasas(with: location) { [weak self] (response: Result<[YDStore], Error>) in
-      switch response {
-      case .success(let stores):
-        var currentAddress = address
+    DispatchQueue.global().async { [weak self] in
+      self?.service.getNearstLasas(with: location) { [weak self] (response: Result<[YDStore], Error>) in
+        switch response {
+        case .success(let stores):
+          var currentAddress = address
 
-        if currentAddress == nil,
-          let storeAddress = stores.first?.formatAddress {
-          currentAddress = storeAddress
+          if currentAddress == nil,
+            let storeAddress = stores.first?.formatAddress {
+            currentAddress = storeAddress
+          }
+
+          self?.location.value = YDLocationViewModel(
+            address: currentAddress ?? "",
+            location: location,
+            store: stores.first
+          )
+
+          //
+          self?.stores.value = stores
+
+        case .failure(let error):
+          self?.location.fire()
+          self?.logger.error(error.localizedDescription)
         }
-
-        self?.location.value = YDLocationViewModel(
-          address: currentAddress ?? "",
-          location: location,
-          store: stores.first
-        )
-
-      case .failure(let error):
-        self?.location.fire()
-        self?.logger.error(error.localizedDescription)
       }
     }
   }
@@ -77,24 +82,26 @@ extension YDMFindStoreViewModel: YDLocationDelegate {
   }
 
   public func onLocation(_ location: CLLocation) {
-    geocoder.getAddress(with: location.coordinate) { [weak self] result in
-      switch result {
-      case .success(let address):
-        self?.searchForNewStore(
-          with: location.coordinate,
-          givingAddress: address.formatAddress,
-          givingType: .location
-        )
+    DispatchQueue.global().async { [weak self] in
+      self?.geocoder.getAddress(with: location.coordinate) { [weak self] result in
+        switch result {
+        case .success(let address):
+          self?.searchForNewStore(
+            with: location.coordinate,
+            givingAddress: address.formatAddress,
+            givingType: .location
+          )
 
-        YDIntegrationHelper.shared.setNewAddress(
-          withCoords: location.coordinate,
-          withAddress: address.formatAddress,
-          withType: .location
-        )
+          YDIntegrationHelper.shared.setNewAddress(
+            withCoords: location.coordinate,
+            withAddress: address.formatAddress,
+            withType: .location
+          )
 
-      case .failure(let error):
-        self?.logger.error(error.localizedDescription)
-        self?.location.fire()
+        case .failure(let error):
+          self?.logger.error(error.localizedDescription)
+          self?.location.fire()
+        }
       }
     }
   }
