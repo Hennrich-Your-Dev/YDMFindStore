@@ -11,7 +11,6 @@ import CoreLocation
 import YDB2WIntegration
 import YDB2WAssets
 import YDExtensions
-import YDLocationModule
 
 extension YDMFindStoreViewController {
   func locationActivity(show: Bool = true) {

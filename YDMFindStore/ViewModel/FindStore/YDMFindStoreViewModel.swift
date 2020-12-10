@@ -7,6 +7,7 @@
 
 import UIKit
 
+import YDB2WIntegration
 import YDUtilities
 import YDExtensions
 import YDB2WModels
@@ -20,8 +21,12 @@ protocol YDMFindStoreNavigationDelegate {
 protocol YDMFindStoreViewModelDelegate {
   var location: Binder<YDLocationViewModel?> { get }
 
+  func getPreviousAddress()
+
+  // Buttons actions
   func onExit()
   func onList()
+  func onGetLocation()
 }
 
 // MARK: View Model
@@ -33,6 +38,9 @@ class YDMFindStoreViewModel {
   let geocoder: YDMFindStoreReverseGeocoderServiceDelegate
 
   var location: Binder<YDLocationViewModel?> = Binder(nil)
+
+  private let locationManager = YDLocation.shared
+  private var alreadyGetUsersPosition = false
 
   // MARK: Init
   init(
@@ -48,11 +56,44 @@ class YDMFindStoreViewModel {
 
 // MARK: Extension delegate
 extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
+  func getPreviousAddress() {
+    YDIntegrationHelper.shared.getAddress { [weak self] currentAddress in
+      guard let address = currentAddress,
+            let coordinates = address.coordinates
+      else {
+        self?.location.fire()
+        return
+      }
+
+      self?.searchForNewStore(
+        with: coordinates,
+        givingAddress: address.transformAddress,
+        givingType: address.type
+      )
+    }
+  }
+
   func onExit() {
     navigation.onExit()
   }
 
   func onList() {
 
+  }
+
+  func onGetLocation() {
+    if locationManager.delegate == nil {
+      locationManager.delegate = self
+    }
+
+    guard location.value?.address != nil,
+          alreadyGetUsersPosition
+    else {
+      locationManager.start()
+      alreadyGetUsersPosition = true
+      return
+    }
+
+    callAddressModuleFromB2W()
   }
 }

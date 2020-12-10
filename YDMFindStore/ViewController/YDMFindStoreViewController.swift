@@ -12,23 +12,19 @@ import CoreLocation
 import YDB2WAssets
 import YDUtilities
 import YDExtensions
-import YDLocationModule
 
 class YDMFindStoreViewController: UIViewController {
   // MARK: Properties
   var viewModel: YDMFindStoreViewModelDelegate?
-  var locationManager: YDLocation {
-    let manager = YDLocation.shared
-    manager.delegate = self
-    return manager
-  }
 
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
     createMapGradient()
-    locationManager.start()
+    setUpBinds()
+
+    locationActivity()
   }
 
   // MARK: IBOutlets
@@ -61,16 +57,27 @@ class YDMFindStoreViewController: UIViewController {
 
   @IBOutlet weak var locationContainer: UIView!
 
-  @IBOutlet weak var locationPinIcon: UIImageView!
+  @IBOutlet weak var locationPinIcon: UIImageView! {
+    didSet {
+      locationPinIcon.image = Icons.locationPin
+    }
+  }
 
-  @IBOutlet weak var locationButton: UIButton!
+  @IBOutlet weak var locationButton: UIButton! {
+    didSet {
+      locationButton.setImage(Icons.point, for: .normal)
+    }
+  }
 
   @IBOutlet weak var locationActivityIndicator: UIActivityIndicatorView!
 
-  @IBOutlet weak var locationChevronIcon: UIImageView!
-  
-  // MARK: IBActions
+  @IBOutlet weak var locationChevronIcon: UIImageView! {
+    didSet {
+      locationChevronIcon.image = Icons.chevronDown
+    }
+  }
 
+  // MARK: IBActions
   @IBAction func onExitAction(_ sender: Any) {
     viewModel?.onExit()
   }
@@ -78,24 +85,14 @@ class YDMFindStoreViewController: UIViewController {
   @IBAction func onListAction(_ sender: Any) {
     viewModel?.onList()
   }
+
+  @IBAction func onLocationAction(_ sender: Any) {
+    locationActivity()
+    viewModel?.onGetLocation()
+  }
 }
 
 // MARK: Actions
 extension YDMFindStoreViewController {
 
-}
-
-// MARK: YDLocation
-extension YDMFindStoreViewController: YDLocationDelegate {
-  func permissionDenied() {
-    //
-  }
-
-  func locationError(_ error: Error) {
-    //
-  }
-
-  func onLocation(_ location: CLLocation) {
-    zoomToUsersLocation(location.coordinate)
-  }
 }

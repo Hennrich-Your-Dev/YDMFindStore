@@ -67,7 +67,6 @@ extension YDMFindStoreViewModel: YDLocationDelegate {
 
   public func permissionDenied() {
     print(#function)
-
     location.fire()
   }
 

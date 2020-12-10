@@ -19,6 +19,7 @@
 		C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */; };
 		C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */; };
 		C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */; };
+		C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreViewModel.swift; sourceTree = "<group>"; };
 		C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Map.swift"; sourceTree = "<group>"; };
 		C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Location.swift"; sourceTree = "<group>"; };
+		C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Binds.swift"; sourceTree = "<group>"; };
 		EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 		C15556D22571C25700CAEDE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C192D8ED25824C9600CDEC56 /* Binds */,
 				C1608A6325800F8B0047444E /* Location */,
 				C15556D32571C25D00CAEDE8 /* Map */,
 			);
@@ -207,6 +210,14 @@
 				C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */,
 			);
 			path = Location;
+			sourceTree = "<group>";
+		};
+		C192D8ED25824C9600CDEC56 /* Binds */ = {
+			isa = PBXGroup;
+			children = (
+				C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */,
+			);
+			path = Binds;
 			sourceTree = "<group>";
 		};
 		E95E0DCEAB0CA37028E8D32B /* Pods */ = {
@@ -329,6 +340,7 @@
 				C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */,
 				C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */,
 				C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */,
+				C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */,
 				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,
