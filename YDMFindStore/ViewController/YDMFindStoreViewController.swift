@@ -100,7 +100,7 @@ class YDMFindStoreViewController: UIViewController {
       collectionView.delegate = self
       collectionView.dataSource = self
 
-      let bundle = Bundle.init(for: Self.self)
+      let bundle = Bundle.init(for: YDMFindStoreViewController.self)
       let storeCard = YDMFindStoreStoreCardCollectionViewCell.loadNib(bundle)
 
       collectionView.register(

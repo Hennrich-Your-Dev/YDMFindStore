@@ -40,6 +40,7 @@ extension YDMFindStoreViewController {
 
     viewModel?.stores.bind { [weak self] stores in
       self?.addPinsOnMap(with: stores)
+      self?.collectionView.reloadData()
     }
   }
 }
