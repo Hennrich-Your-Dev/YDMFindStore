@@ -33,7 +33,6 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet weak var logoImageView: UIImageView! {
     didSet {
-      logoImageView.backgroundColor = UIColor.Zeplin.graySurface
       logoImageView.tintColor = UIColor.Zeplin.redBranding
       logoImageView.image = Icons.logo
     }
@@ -53,7 +52,7 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
       productsButton.tintColor = grayColor
 
       productsButton.setImage(Icons.basket, for: .normal)
-      productsButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+      productsButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
     }
   }
 
@@ -65,7 +64,7 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
       whatsappButton.tintColor = grayColor
 
       whatsappButton.setImage(Icons.whatsapp, for: .normal)
-      whatsappButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
+      whatsappButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
     }
   }
 
@@ -80,6 +79,8 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
   // MARK: Life cycle
   override func awakeFromNib() {
     super.awakeFromNib()
+    layer.cornerRadius = 8
+    layer.applyShadow()
   }
 
   // MARK: IBActions
