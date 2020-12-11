@@ -66,7 +66,7 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
       andParameters: parameters) { (response: Result<YDStores, Error>) in
       switch response {
       case .success(let stores):
-        let sorted = stores.stores.prefix(10).compactMap { $0 }.sorted { $0.distance < $1.distance }
+        let sorted = stores.stores.sorted { $0.distance < $1.distance }
 
         onCompletion(.success(sorted))
 

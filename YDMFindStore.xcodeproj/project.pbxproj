@@ -20,6 +20,8 @@
 		C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */; };
 		C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */; };
 		C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */; };
+		C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */; };
+		C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Map.swift"; sourceTree = "<group>"; };
 		C1608A6425800FBD0047444E /* YDMFindStoreViewController+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Location.swift"; sourceTree = "<group>"; };
 		C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Binds.swift"; sourceTree = "<group>"; };
+		C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLargerAnnotation.swift; sourceTree = "<group>"; };
+		C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSmallAnnotation.swift; sourceTree = "<group>"; };
 		EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -199,6 +203,7 @@
 		C15556D32571C25D00CAEDE8 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				C192DA122582BCB500CDEC56 /* CustomAnnotation */,
 				C15556D42571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift */,
 			);
 			path = Map;
@@ -218,6 +223,15 @@
 				C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */,
 			);
 			path = Binds;
+			sourceTree = "<group>";
+		};
+		C192DA122582BCB500CDEC56 /* CustomAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */,
+				C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */,
+			);
+			path = CustomAnnotation;
 			sourceTree = "<group>";
 		};
 		E95E0DCEAB0CA37028E8D32B /* Pods */ = {
@@ -336,11 +350,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */,
+				C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */,
 				C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */,
 				C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */,
 				C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */,
 				C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */,
 				C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */,
+				C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */,
 				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,

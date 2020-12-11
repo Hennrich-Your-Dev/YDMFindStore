@@ -30,12 +30,26 @@ class YDMFindStoreViewController: UIViewController {
     viewModel?.getPreviousAddress()
   }
 
+  deinit {
+    mapView.delegate = nil
+  }
+
   // MARK: IBOutlets
   @IBOutlet weak var mapView: MKMapView! {
     didSet {
       mapView.showsUserLocation = true
       mapView.tintColor = UIColor.Zeplin.redBranding
       mapView.delegate = self
+
+      mapView.register(
+        CustomLargerAnnotation.self,
+        forAnnotationViewWithReuseIdentifier: CustomLargerAnnotation.identifier
+      )
+
+      mapView.register(
+        CustomSmallAnnotation.self,
+        forAnnotationViewWithReuseIdentifier: CustomSmallAnnotation.identifier
+      )
     }
   }
 
@@ -94,9 +108,4 @@ class YDMFindStoreViewController: UIViewController {
     locationActivity()
     viewModel?.onGetLocation()
   }
-}
-
-// MARK: Actions
-extension YDMFindStoreViewController {
-
 }

@@ -114,17 +114,22 @@ extension YDMFindStoreViewController {
         continue
       }
 
-//      let pinFrame = CGRect(
-//        x: 0,
-//        y: 0,
-//        width: index == 0 ? 40 : 30,
-//        height: index == 0 ? 55 : 41
-//      )
+      let annotation = MKPointAnnotation()
+      annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 
-      let pin = MKPointAnnotation()
-      pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+      let pinView = index == 0 ?
+        CustomLargerAnnotation(
+          annotation: annotation,
+          reuseIdentifier : CustomLargerAnnotation.identifier
+        ) :
+        CustomSmallAnnotation(
+          annotation: annotation,
+          reuseIdentifier : CustomLargerAnnotation.identifier
+        )
 
-      annotations.append(pin)
+      if let pin = pinView.annotation {
+        mapView.addAnnotation(pin)
+      }
     }
 
     mapView.addAnnotations(annotations)
@@ -147,24 +152,21 @@ extension YDMFindStoreViewController: MKMapViewDelegate {
   }
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    if !(annotation is MKPointAnnotation) {
+    switch annotation {
+    case is CustomLargerAnnotation:
+      return mapView.dequeueReusableAnnotationView(
+        withIdentifier: CustomLargerAnnotation.identifier,
+        for: annotation
+      )
+
+    case is CustomSmallAnnotation:
+      return mapView.dequeueReusableAnnotationView(
+        withIdentifier: CustomSmallAnnotation.identifier,
+        for: annotation
+      )
+
+    default:
       return nil
     }
-
-    let annotationIdentifier = "AnnotationIdentifier"
-    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
-
-    if annotationView == nil {
-      annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
-      annotationView!.canShowCallout = true
-      
-    } else {
-      annotationView!.annotation = annotation
-    }
-
-    let pinImage = Images.storePin
-    annotationView!.image = pinImage
-
-    return annotationView
   }
 }
