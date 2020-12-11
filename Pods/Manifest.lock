@@ -82,7 +82,7 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - YDB2WAssets (1.0.18)
+  - YDB2WAssets (1.0.19)
   - YDB2WComponents (1.0.47):
     - Cosmos (= 22.1.0)
     - MaterialComponents/Snackbar
@@ -137,7 +137,7 @@ SPEC CHECKSUMS:
   MaterialComponents: a7206e4d3491b63c7cedc8d80032cbc0178a9497
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  YDB2WAssets: 3cf33d4bc35c5c78f41d09fdaf3d95f9ca77b9f5
+  YDB2WAssets: c4b7655f6fe0336803b0cf0293ae7306e09e8a21
   YDB2WComponents: b462b5eb5557404ba42fdfe6ceb372ea77d3801a
   YDB2WIntegration: e90e6be66618c6ad46f9ddf7dff339b951d8ba51
   YDB2WModels: 569a610d8917ba7b4e9f70663b82145b40309c80
