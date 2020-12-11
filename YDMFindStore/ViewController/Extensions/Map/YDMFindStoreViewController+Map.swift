@@ -105,9 +105,10 @@ extension YDMFindStoreViewController {
   }
 
   func addPinsOnMap(with stores: [YDStore]) {
-    mapView.removeAnnotations(annotations)
+    mapView.removeAnnotations(mapView.annotations)
+    annotations.removeAll()
 
-    for (index, store) in stores.enumerated() {
+    for store in stores {
       guard let latitude = store.geolocation?.latitude,
             let longitude = store.geolocation?.longitude
       else {
@@ -115,21 +116,13 @@ extension YDMFindStoreViewController {
       }
 
       let annotation = MKPointAnnotation()
-      annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+      annotation.coordinate = CLLocationCoordinate2D(
+        latitude: latitude,
+        longitude: longitude
+      )
 
-      let pinView = index == 0 ?
-        CustomLargerAnnotation(
-          annotation: annotation,
-          reuseIdentifier : CustomLargerAnnotation.identifier
-        ) :
-        CustomSmallAnnotation(
-          annotation: annotation,
-          reuseIdentifier : CustomLargerAnnotation.identifier
-        )
-
-      if let pin = pinView.annotation {
-        mapView.addAnnotation(pin)
-      }
+      mapView.addAnnotation(annotation)
+      annotations.append(annotation)
     }
 
     mapView.addAnnotations(annotations)
@@ -152,21 +145,22 @@ extension YDMFindStoreViewController: MKMapViewDelegate {
   }
 
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    switch annotation {
-    case is CustomLargerAnnotation:
+    if annotation is MKUserLocation {
+      return nil
+    }
+
+    if let firstAnnotation = annotations.first,
+       firstAnnotation.coordinate.latitude == annotation.coordinate.latitude &&
+        firstAnnotation.coordinate.longitude == annotation.coordinate.longitude {
       return mapView.dequeueReusableAnnotationView(
         withIdentifier: CustomLargerAnnotation.identifier,
         for: annotation
       )
-
-    case is CustomSmallAnnotation:
+    } else {
       return mapView.dequeueReusableAnnotationView(
         withIdentifier: CustomSmallAnnotation.identifier,
         for: annotation
       )
-
-    default:
-      return nil
     }
   }
 }
