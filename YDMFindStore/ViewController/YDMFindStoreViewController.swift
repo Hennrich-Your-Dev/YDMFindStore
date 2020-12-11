@@ -95,6 +95,21 @@ class YDMFindStoreViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var collectionView: UICollectionView! {
+    didSet {
+      collectionView.delegate = self
+      collectionView.dataSource = self
+
+      let bundle = Bundle.init(for: Self.self)
+      let storeCard = YDMFindStoreStoreCardCollectionViewCell.loadNib(bundle)
+
+      collectionView.register(
+        storeCard,
+        forCellWithReuseIdentifier: YDMFindStoreStoreCardCollectionViewCell.identifier
+      )
+    }
+  }
+
   // MARK: IBActions
   @IBAction func onExitAction(_ sender: Any) {
     viewModel?.onExit()

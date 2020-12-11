@@ -120,6 +120,28 @@
                                     <constraint firstAttribute="height" constant="22" id="wbM-dy-UBA"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="89g-cQ-wY9">
+                                <rect key="frame" x="0.0" y="712" width="414" height="130"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="kne-0V-VXs"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="8" id="ila-wK-Oh9">
+                                    <size key="itemSize" width="343" height="130"/>
+                                    <size key="headerReferenceSize" width="20" height="50"/>
+                                    <size key="footerReferenceSize" width="20" height="50"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="NJJ-Zd-ULq">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Footer" id="YR4-zV-6AL">
+                                    <rect key="frame" x="28" y="0.0" width="20" height="130"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKQ-9D-c0U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,14 +151,18 @@
                             <constraint firstAttribute="bottom" secondItem="dBT-uJ-toC" secondAttribute="bottom" id="5hS-l9-DjQ"/>
                             <constraint firstItem="VKp-y9-d1F" firstAttribute="top" secondItem="oKQ-9D-c0U" secondAttribute="top" constant="5" id="6iF-ST-8OG"/>
                             <constraint firstItem="VKp-y9-d1F" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="CTy-tw-gD9"/>
+                            <constraint firstItem="89g-cQ-wY9" firstAttribute="trailing" secondItem="oKQ-9D-c0U" secondAttribute="trailing" id="HNF-zB-Ath"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="JYr-YG-Vda"/>
+                            <constraint firstItem="oKQ-9D-c0U" firstAttribute="bottom" secondItem="89g-cQ-wY9" secondAttribute="bottom" constant="20" id="W43-rP-Rwb"/>
                             <constraint firstItem="oKQ-9D-c0U" firstAttribute="trailing" secondItem="VKp-y9-d1F" secondAttribute="trailing" id="cmf-f3-cL9"/>
                             <constraint firstItem="c5b-z3-qTh" firstAttribute="top" secondItem="oKQ-9D-c0U" secondAttribute="top" constant="68" id="hoj-jA-i2A"/>
+                            <constraint firstItem="89g-cQ-wY9" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="ncr-kv-QmI"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="top" secondItem="KUn-S1-ePC" secondAttribute="top" id="wKP-lG-6Pu"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="trailing" secondItem="oKQ-9D-c0U" secondAttribute="trailing" id="xCg-fR-oVa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="89g-cQ-wY9" id="jdk-kJ-jQI"/>
                         <outlet property="exitButton" destination="Wqg-BA-0yW" id="4qE-gT-Cc2"/>
                         <outlet property="listButton" destination="54L-ze-xPP" id="F4b-Zq-RYw"/>
                         <outlet property="locationActivityIndicator" destination="FSB-Qw-xIc" id="JWc-Cd-sLh"/>

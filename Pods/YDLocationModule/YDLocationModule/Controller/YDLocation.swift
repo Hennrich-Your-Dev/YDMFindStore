@@ -14,7 +14,7 @@ public class YDLocation: NSObject {
   // MARK: Properties
   public static let shared = YDLocation()
 
-  public var delegate: YDLocationDelegate? {
+  public weak var delegate: YDLocationDelegate? {
     didSet {
       canTrigger = true
     }
@@ -36,13 +36,36 @@ public class YDLocation: NSObject {
 
   // MARK: Actions
   private func requestAuthorization() {
-    locationManager.requestWhenInUseAuthorization()
+    DispatchQueue.global().async { [weak self] in
+      DispatchQueue.main.async { [weak self] in
+        self?.locationManager.requestWhenInUseAuthorization()
+      }
+    }
   }
 
   private func searchForCurrentLocation() {
-    locationManager.requestLocation()
+    DispatchQueue.global().async { [weak self] in
+      DispatchQueue.main.async { [weak self] in
+        self?.locationManager.requestLocation()
+      }
+    }
   }
 
+  private func deniedPermission() {
+    DispatchQueue.global().async { [weak self] in
+      DispatchQueue.main.async { [weak self] in
+        self?.delegate?.permissionDenied()
+      }
+    }
+  }
+
+  private func locationError(error: Error) {
+    DispatchQueue.global().async { [weak self] in
+      DispatchQueue.main.async { [weak self] in
+        self?.delegate?.locationError(error)
+      }
+    }
+  }
 }
 
 // MARK: Public Actions
@@ -54,17 +77,17 @@ extension YDLocation {
 
   public func start() {
     if status == .notDetermined {
-      return requestAuthorization()
+      requestAuthorization()
+      return
     }
 
     if status == .denied {
-      delegate?.permissionDenied()
+      deniedPermission()
       return
     }
 
     searchForCurrentLocation()
   }
-
 }
 
 extension YDLocation: CLLocationManagerDelegate {
@@ -80,18 +103,21 @@ extension YDLocation: CLLocationManagerDelegate {
       searchForCurrentLocation()
 
     } else if status == .denied {
-      delegate?.permissionDenied()
+      deniedPermission()
     }
-
   }
 
   public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let currentLocation = locations.last {
-      delegate?.onLocation(currentLocation)
+      DispatchQueue.global().async { [weak self] in
+        DispatchQueue.main.async { [weak self] in
+          self?.delegate?.onLocation(currentLocation)
+        }
+      }
     }
   }
 
   public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    delegate?.locationError(error)
+    locationError(error: error)
   }
 }

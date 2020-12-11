@@ -13,6 +13,8 @@ public class Icons {
 
   public static let bars = UIImage(named: "iconBars", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
+  public static let basket = UIImage(named: "iconBasket", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+
   public static let chatBalloon = UIImage(named: "iconChatBalloon", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let chatWired = UIImage(named: "iconChatWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)

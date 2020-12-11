@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		414A821D9C0C607B997E36B0 /* Pods_YDMFindStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */; };
+		C10DD29A2583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DD2992583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift */; };
+		C10DD2A22583D20A00A4F7AB /* StoreCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DD2A02583D20A00A4F7AB /* StoreCardCollectionViewCell.swift */; };
+		C10DD2A32583D20A00A4F7AB /* StoreCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10DD2A12583D20A00A4F7AB /* StoreCardCollectionViewCell.xib */; };
 		C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */; };
 		C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */; };
 		C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		7951D64C2F15680A7E99E91E /* Pods-YDMFindStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDMFindStore.debug.xcconfig"; path = "Target Support Files/Pods-YDMFindStore/Pods-YDMFindStore.debug.xcconfig"; sourceTree = "<group>"; };
 		8425EAD9FBD8BE81661A8E5A /* Pods-YDMFindStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YDMFindStore.release.xcconfig"; path = "Target Support Files/Pods-YDMFindStore/Pods-YDMFindStore.release.xcconfig"; sourceTree = "<group>"; };
+		C10DD2992583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		C10DD2A02583D20A00A4F7AB /* StoreCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C10DD2A12583D20A00A4F7AB /* StoreCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewModel+Location.swift"; sourceTree = "<group>"; };
 		C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderViewModel.swift; sourceTree = "<group>"; };
 		C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderService.swift; sourceTree = "<group>"; };
@@ -64,6 +70,47 @@
 				EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C10DD2972583CA4700A4F7AB /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C10DD29C2583CBA900A4F7AB /* Cell */,
+				C10DD2992583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C10DD29C2583CBA900A4F7AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C10DD2A02583D20A00A4F7AB /* StoreCardCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		C10DD29D2583CBB000A4F7AB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C10DD29E2583CBB500A4F7AB /* CollectionView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C10DD29E2583CBB500A4F7AB /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C10DD29F2583CBB900A4F7AB /* Cell */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C10DD29F2583CBB900A4F7AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C10DD2A12583D20A00A4F7AB /* StoreCardCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		C1351484258067990018EA0E /* Extensions */ = {
@@ -167,6 +214,7 @@
 		C15556C32571BF9400CAEDE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C10DD29D2583CBB000A4F7AB /* Extensions */,
 				C15556C42571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard */,
 			);
 			path = View;
@@ -193,6 +241,7 @@
 		C15556D22571C25700CAEDE8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C10DD2972583CA4700A4F7AB /* CollectionView */,
 				C192D8ED25824C9600CDEC56 /* Binds */,
 				C1608A6325800F8B0047444E /* Location */,
 				C15556D32571C25D00CAEDE8 /* Map */,
@@ -313,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C10DD2A32583D20A00A4F7AB /* StoreCardCollectionViewCell.xib in Resources */,
 				C15556C52571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +401,7 @@
 			files = (
 				C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */,
 				C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */,
+				C10DD2A22583D20A00A4F7AB /* StoreCardCollectionViewCell.swift in Sources */,
 				C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */,
 				C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */,
 				C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */,
@@ -360,6 +411,7 @@
 				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,
+				C10DD29A2583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift in Sources */,
 				C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
