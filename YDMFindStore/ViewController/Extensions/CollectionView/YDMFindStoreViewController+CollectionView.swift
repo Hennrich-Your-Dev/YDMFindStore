@@ -12,7 +12,13 @@ import YDExtensions
 // MARK: Data Source
 extension YDMFindStoreViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return viewModel?.stores.value.count ?? 0
+    guard let stores = viewModel?.stores.value else {
+      storesListContainer.isHidden = true
+      return 0
+    }
+
+    storesListContainer.isHidden = stores.isEmpty
+    return stores.count
   }
 
   func collectionView(

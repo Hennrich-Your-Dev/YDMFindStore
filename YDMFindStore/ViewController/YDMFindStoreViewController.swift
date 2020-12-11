@@ -19,21 +19,6 @@ class YDMFindStoreViewController: UIViewController {
   var alreadyPlaceCurrentLocationMarker = false
   var annotations: [MKAnnotation] = []
 
-  // MARK: Life cycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    createMapGradient()
-    setUpBinds()
-
-    locationActivity()
-    viewModel?.getPreviousAddress()
-  }
-
-  deinit {
-    mapView.delegate = nil
-  }
-
   // MARK: IBOutlets
   @IBOutlet weak var mapView: MKMapView! {
     didSet {
@@ -95,6 +80,10 @@ class YDMFindStoreViewController: UIViewController {
     }
   }
 
+  @IBOutlet weak var storesListContainer: UIView!
+
+  @IBOutlet weak var howManyStoresLabel: UILabel!
+
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
       collectionView.delegate = self
@@ -110,6 +99,22 @@ class YDMFindStoreViewController: UIViewController {
     }
   }
 
+  // MARK: Life cycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    createMapGradient()
+    setUpBinds()
+
+    collectionView.reloadData()
+    locationActivity()
+    viewModel?.getPreviousAddress()
+  }
+
+  deinit {
+    mapView.delegate = nil
+  }
+
   // MARK: IBActions
   @IBAction func onExitAction(_ sender: Any) {
     viewModel?.onExit()
@@ -122,5 +127,12 @@ class YDMFindStoreViewController: UIViewController {
   @IBAction func onLocationAction(_ sender: Any) {
     locationActivity()
     viewModel?.onGetLocation()
+  }
+}
+
+// MARK: Actions
+extension YDMFindStoreViewController {
+  func formatHowManyStoresOnList(with howMany: Int) {
+    howManyStoresLabel.text = String(format: howManyStoresLabel.text ?? "", howMany)
   }
 }

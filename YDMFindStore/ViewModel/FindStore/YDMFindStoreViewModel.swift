@@ -85,9 +85,8 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
   }
 
   func onGetLocation() {
-    if locationManager.delegate == nil {
-      locationManager.delegate = self
-    }
+    locationManager.delegate = nil
+    locationManager.delegate = self
 
     guard location.value?.address != nil,
           alreadyGetUsersPosition
@@ -101,9 +100,8 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
   }
 
   func onGetCurrentLocation() {
-    if locationManager.delegate == nil {
-      locationManager.delegate = self
-    }
+    locationManager.delegate = nil
+    locationManager.delegate = self
 
     locationManager.start()
   }
