@@ -93,6 +93,9 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
   // MARK: Actions
   public func config(with store: YDStore) {
     self.store = store
-  }
 
+    storeLabel.text = store.name
+    addressLabel.text = store.formatAddress
+    distanceLabel.text = store.formatDistance
+  }
 }

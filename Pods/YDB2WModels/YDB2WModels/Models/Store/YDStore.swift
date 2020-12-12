@@ -33,7 +33,15 @@ public class YDStore: Decodable {
 
   public var isLasa: Bool {
     // Convert KM to Meters
-    return (distance * 1000) <= 400
+    let currentDistance = Measurement(value: distance, unit: UnitLength.kilometers)
+    let meters = currentDistance.converted(to: .meters)
+    return meters.value <= 400
+  }
+
+  public var formatDistance: String {
+    let kilometers = Measurement(value: distance, unit: UnitLength.kilometers)
+    let meters = kilometers.converted(to: .meters)
+    return meters.value >= 1000 ? "\(kilometers.value) \(kilometers.unit.symbol)" : "\(meters.value) \(meters.unit.symbol)"
   }
 
   public func addressAndStoreName() -> String {
