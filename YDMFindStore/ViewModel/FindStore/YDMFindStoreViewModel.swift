@@ -23,6 +23,7 @@ protocol YDMFindStoreViewModelDelegate {
   var stores: Binder<[YDStore]> { get }
 
   func getPreviousAddress()
+  subscript(_ index: Int) -> YDStore? { get }
 
   // Buttons actions
   func onExit()
@@ -59,6 +60,11 @@ class YDMFindStoreViewModel {
 
 // MARK: Extension delegate
 extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
+
+  subscript(_ index: Int) -> YDStore? {
+    return stores.value.at(index)
+  }
+
   func getPreviousAddress() {
     YDIntegrationHelper.shared.getAddress { [weak self] currentAddress in
       guard let address = currentAddress,
