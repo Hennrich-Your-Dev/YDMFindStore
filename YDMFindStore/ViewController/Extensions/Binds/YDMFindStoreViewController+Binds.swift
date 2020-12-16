@@ -25,7 +25,7 @@ extension YDMFindStoreViewController {
         else { return }
 
       if let coords = location.location {
-        self.zoomToUsersLocation(coords)
+        self.zoomToPosition(coords)
       }
 
       if let address = location.address,

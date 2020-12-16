@@ -18,6 +18,8 @@ class YDMFindStoreViewController: UIViewController {
   var viewModel: YDMFindStoreViewModelDelegate?
   var alreadyPlaceCurrentLocationMarker = false
   var annotations: [MKAnnotation] = []
+  var reAdjustinRect = false
+  var currentStoreIndex = 0
 
   // MARK: IBOutlets
   @IBOutlet weak var mapView: MKMapView! {

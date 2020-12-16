@@ -47,7 +47,7 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var productsButton: UIButton! {
     didSet {
       productsButton.layer.cornerRadius = 4
-      productsButton.layer.borderWidth = 1.5
+      productsButton.layer.borderWidth = 1
       productsButton.layer.borderColor = grayColor.cgColor
       productsButton.tintColor = grayColor
 
@@ -59,7 +59,7 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var whatsappButton: UIButton! {
     didSet {
       whatsappButton.layer.cornerRadius = 4
-      whatsappButton.layer.borderWidth = 1.5
+      whatsappButton.layer.borderWidth = 1
       whatsappButton.layer.borderColor = grayColor.cgColor
       whatsappButton.tintColor = grayColor
 

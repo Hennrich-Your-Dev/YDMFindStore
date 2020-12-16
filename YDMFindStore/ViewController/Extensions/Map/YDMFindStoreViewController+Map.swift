@@ -51,14 +51,23 @@ extension YDMFindStoreViewController {
     mapView?.layer.addSublayer(gradientBottom)
   }
 
-  func zoomToUsersLocation(_ coordinate: CLLocationCoordinate2D) {
-    let regionRadius: CLLocationDistance = 200
-
-    let viewRegion = MKCoordinateRegion(
+  func zoomToPosition(
+    _ coordinate: CLLocationCoordinate2D,
+    withSpan span: MKCoordinateSpan? = nil,
+    withRadius radius: Double = 200
+  ) {
+    var viewRegion = MKCoordinateRegion(
       center: coordinate,
-      latitudinalMeters: regionRadius * 2,
-      longitudinalMeters: regionRadius * 2
+      latitudinalMeters: radius * 2,
+      longitudinalMeters: radius * 2
     )
+
+    if let span = span {
+      viewRegion = MKCoordinateRegion(
+        center: coordinate,
+        span: span
+      )
+    }
 
     mapView.setRegion(viewRegion, animated: false)
   }
@@ -104,7 +113,7 @@ extension YDMFindStoreViewController {
     }
   }
 
-  func addPinsOnMap(with stores: [YDStore]) {
+  func addPinsOnMap(with stores: [YDStore], shouldCenterMap: Bool = false) {
     mapView.removeAnnotations(mapView.annotations)
     annotations.removeAll()
 
@@ -126,6 +135,24 @@ extension YDMFindStoreViewController {
     }
 
     mapView.addAnnotations(annotations)
+
+    if shouldCenterMap,
+       let selectedStore = stores.at(currentStoreIndex),
+       let lat = selectedStore.geolocation?.latitude,
+       let lng = selectedStore.geolocation?.longitude {
+
+      let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+      zoomToPosition(coordinate, withSpan: mapView.region.span)
+    }
+  }
+
+  func redrawPins(highlightAt index: Int, shouldCenterMap centering: Bool) {
+    guard let stores = viewModel?.stores.value else {
+      return
+    }
+
+    currentStoreIndex = index
+    addPinsOnMap(with: stores, shouldCenterMap: centering)
   }
 }
 
@@ -133,7 +160,7 @@ extension YDMFindStoreViewController: MKMapViewDelegate {
   func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
     if !alreadyPlaceCurrentLocationMarker {
       alreadyPlaceCurrentLocationMarker = true
-      zoomToUsersLocation(userLocation.coordinate)
+      zoomToPosition(userLocation.coordinate)
     }
   }
 
@@ -149,18 +176,37 @@ extension YDMFindStoreViewController: MKMapViewDelegate {
       return nil
     }
 
-    if let firstAnnotation = annotations.first,
-       firstAnnotation.coordinate.latitude == annotation.coordinate.latitude &&
-        firstAnnotation.coordinate.longitude == annotation.coordinate.longitude {
+    if let largestAnnotation = annotations.at(currentStoreIndex),
+       largestAnnotation.coordinate.latitude == annotation.coordinate.latitude &&
+        largestAnnotation.coordinate.longitude == annotation.coordinate.longitude {
       return mapView.dequeueReusableAnnotationView(
         withIdentifier: CustomLargerAnnotation.identifier,
         for: annotation
       )
+
     } else {
       return mapView.dequeueReusableAnnotationView(
         withIdentifier: CustomSmallAnnotation.identifier,
         for: annotation
       )
     }
+  }
+
+  func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+    guard let annotation = view.annotation,
+          let index = annotations.firstIndex(where: {
+                                              $0.coordinate.latitude == annotation.coordinate.latitude &&
+                                                $0.coordinate.longitude == annotation.coordinate.longitude
+          })
+    else {
+      return
+    }
+
+    redrawPins(highlightAt: index, shouldCenterMap: true)
+    collectionView.scrollToItem(
+      at: IndexPath(row: index, section: 0),
+      at: .centeredHorizontally,
+      animated: true
+    )
   }
 }

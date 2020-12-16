@@ -67,5 +67,30 @@ extension YDMFindStoreViewController: UICollectionViewDataSource {
 
 // MARK: Delegate
 extension YDMFindStoreViewController: UICollectionViewDelegate {
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    if reAdjustinRect { return }
+    reAdjustinRect = true
 
+    let cells = collectionView.visibleCells
+    let currentX = scrollView.contentOffset.x
+    var items: [(UICollectionViewCell, IndexPath)] = []
+
+    for item in cells {
+      if let indexPath = collectionView.indexPath(for: item) {
+        items.append((item, indexPath))
+      }
+    }
+
+    if let closest = items.enumerated().min(by: {
+      abs($0.element.0.frame.minX - currentX) < abs($1.element.0.frame.minX - currentX)
+    }) {
+      collectionView.scrollToItem(at: closest.element.1, at: .centeredHorizontally, animated: true)
+
+      redrawPins(highlightAt: closest.element.1.row, shouldCenterMap: true)
+    }
+
+    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
+      self?.reAdjustinRect = false
+    }
+  }
 }
