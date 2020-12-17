@@ -41,6 +41,11 @@ extension YDMFindStoreViewController {
     viewModel?.stores.bind { [weak self] stores in
       self?.addPinsOnMap(with: stores)
       self?.collectionView.reloadData()
+      self?.collectionView.scrollToItem(
+        at: IndexPath(row: 0, section: 0),
+        at: .centeredHorizontally,
+        animated: true
+      )
       self?.formatHowManyStoresOnList(with: stores.count)
     }
   }

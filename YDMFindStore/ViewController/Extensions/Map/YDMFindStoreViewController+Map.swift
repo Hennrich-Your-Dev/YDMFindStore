@@ -69,7 +69,7 @@ extension YDMFindStoreViewController {
       )
     }
 
-    mapView.setRegion(viewRegion, animated: false)
+    mapView.setRegion(viewRegion, animated: true)
   }
 
   func fetchDirection(to store: YDStore) {

@@ -37,6 +37,28 @@ class YDMFindStoreViewController: UIViewController {
         CustomSmallAnnotation.self,
         forAnnotationViewWithReuseIdentifier: CustomSmallAnnotation.identifier
       )
+
+      if #available(iOS 13, *) {
+        let pointsFilter = MKPointOfInterestFilter(including: [
+          .hotel,
+          .hospital,
+          .aquarium,
+          .beach,
+          .nationalPark,
+          .museum,
+          .stadium,
+          .zoo,
+          .theater,
+          .movieTheater,
+          .publicTransport,
+          .airport
+        ])
+
+        mapView.showsPointsOfInterest = true
+        mapView.pointOfInterestFilter = pointsFilter
+      } else {
+        mapView.showsPointsOfInterest = false
+      }
     }
   }
 
