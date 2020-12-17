@@ -34,7 +34,7 @@ extension YDMFindStoreViewController: UICollectionViewDataSource {
 
     cell.config(with: store)
     cell.callback = { fromProducts in
-
+      viewModel.onStoreCardAction(type: fromProducts ? .product : .whatsapp, store: store)
     }
     return cell
   }
