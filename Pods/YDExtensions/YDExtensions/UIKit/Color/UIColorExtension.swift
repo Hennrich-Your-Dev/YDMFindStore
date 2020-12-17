@@ -50,7 +50,7 @@ public extension UIColor {
 
     // MARK: Green
     public static var green: UIColor {
-      return UIColor(red: 151.0 / 202.0, green: 88.0 / 255.0, blue: 2.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 151.0 / 255.0, green: 202.0 / 255.0, blue: 88.0 / 255.0, alpha: 1.0)
     }
 
     public static var greenLight: UIColor {
