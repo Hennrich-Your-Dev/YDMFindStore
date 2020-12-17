@@ -72,6 +72,10 @@ extension YDMFindStoreViewController {
     mapView.setRegion(viewRegion, animated: true)
   }
 
+  // TODO:
+  // remover chamada
+  // setar o zoom do mapa na localização atual do usuario + loja
+  // mais próxima
   func fetchDirection(to store: YDStore) {
     guard let latitude = store.geolocation?.latitude,
           let longitude = store.geolocation?.longitude
@@ -97,7 +101,7 @@ extension YDMFindStoreViewController {
         return
       }
 
-      self.mapView.addOverlay(route.polyline)
+      // self.mapView.addOverlay(route.polyline)
 
       let wPadding = route.polyline.boundingMapRect.size.width * 0.55
       let hPadding = route.polyline.boundingMapRect.size.height * 0.25
