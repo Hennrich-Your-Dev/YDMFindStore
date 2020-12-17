@@ -22,6 +22,7 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
   )
 
   var store: YDStore?
+  var callback: ((_ fromProducts: Bool) -> Void)?
 
   // MARK: IBOutlets
   @IBOutlet weak var container: UIView! {
@@ -93,9 +94,11 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
 
   // MARK: IBActions
   @IBAction func onProductsAction(_ sender: Any) {
+    callback?(true)
   }
 
   @IBAction func onWhatsappAction(_ sender: Any) {
+    callback?(false)
   }
 
   // MARK: Actions

@@ -30,6 +30,7 @@ protocol YDMFindStoreViewModelDelegate {
   func onList()
   func onGetLocation()
   func onGetCurrentLocation()
+  func onStoreCardAction(type: OnStoreCardActionEnum, store: YDStore)
 }
 
 // MARK: View Model
@@ -110,5 +111,25 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
     locationManager.delegate = self
 
     locationManager.start()
+  }
+
+  func onStoreCardAction(type: OnStoreCardActionEnum, store: YDStore) {
+    switch type {
+    case .product:
+      let parameters: [String: String] = [
+        "sellerId": store.sellerID,
+        "storeId": store.sellerStoreID
+      ]
+
+      guard let urlString = queryString("acom://lasa-store", params: parameters),
+            let url = URL(string: urlString),
+            !url.absoluteString.isEmpty else {
+        return
+      }
+
+      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+    case .whatsapp: break
+    }
   }
 }

@@ -97,7 +97,7 @@ PODS:
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.4)
-  - YDUtilities (1.0.3):
+  - YDUtilities (1.0.4):
     - Alamofire (~> 4.0)
 
 DEPENDENCIES:
@@ -144,7 +144,7 @@ SPEC CHECKSUMS:
   YDB2WModels: 0bb3a0e2a0371c8a756b087b84e0233475c573b8
   YDExtensions: 649c27ecadabfb9b8abe0829d00fb87eda9a4fb4
   YDLocationModule: 7873c57b3dbb890b0ad3f78aa7090f1680391a33
-  YDUtilities: 8c69c5935ca6e2a0b5b5c91c3e05d48a83a2ee4e
+  YDUtilities: 65684d74741aa38dec7477e88270cb0f2627fda8
 
 PODFILE CHECKSUM: f8a2f0baa1568dceff8ac7b9553b6e2f458b6baf
 

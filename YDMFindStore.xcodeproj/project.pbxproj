@@ -25,6 +25,7 @@
 		C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */; };
 		C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */; };
 		C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */; };
+		C1A27598258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A27597258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Binds.swift"; sourceTree = "<group>"; };
 		C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLargerAnnotation.swift; sourceTree = "<group>"; };
 		C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSmallAnnotation.swift; sourceTree = "<group>"; };
+		C1A27597258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewModel+Enums.swift"; sourceTree = "<group>"; };
 		EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		C1351484258067990018EA0E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1A27596258B920D005740F9 /* Enums */,
 				C1351485258067A00018EA0E /* Location */,
 			);
 			path = Extensions;
@@ -283,6 +286,14 @@
 			path = CustomAnnotation;
 			sourceTree = "<group>";
 		};
+		C1A27596258B920D005740F9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C1A27597258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		E95E0DCEAB0CA37028E8D32B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +419,7 @@
 				C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */,
 				C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */,
 				C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */,
+				C1A27598258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift in Sources */,
 				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,

@@ -26,12 +26,16 @@ extension YDMFindStoreViewController: UICollectionViewDataSource {
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: YDMFindStoreStoreCardCollectionViewCell.identifier, for: indexPath) as? YDMFindStoreStoreCardCollectionViewCell,
-          let store = viewModel?[indexPath.row]
+          let viewModel = viewModel,
+          let store = viewModel[indexPath.row]
     else {
       fatalError()
     }
 
     cell.config(with: store)
+    cell.callback = { fromProducts in
+
+    }
     return cell
   }
 
