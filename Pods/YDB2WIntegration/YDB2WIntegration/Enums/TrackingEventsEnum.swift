@@ -24,6 +24,7 @@ public enum TrackEvents: String {
   case playVideo = "ACOM:Video:Playing"
   case addToCart = "ACOM:LiveCarousel:AddToCart"
   case productSelected = "ACOM:LiveCarousel:ProductSelected"
+  case liveOpenChat = "ACOM-live-chataovivo"
 
   // Store Mode
   case storePageView = "ACOM:O2O-Home"
@@ -40,7 +41,7 @@ public enum TrackEvents: String {
       return ["tipoPagina": "LASA-Scan"]
 
     // Live
-    case .pageView, .playVideo, .addToCart, .productSelected:
+    case .pageView, .playVideo, .addToCart, .productSelected, .liveOpenChat:
       return [:]
 
     // Store
@@ -92,6 +93,9 @@ public enum TrackEvents: String {
         "sku": sku,
         "sellerId": sellerId
       ]
+
+    case .liveOpenChat:
+      return [:]
 
     // Store
     case .storePageView:

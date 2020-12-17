@@ -97,5 +97,6 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
     storeLabel.text = store.name
     addressLabel.text = store.formatAddress
     distanceLabel.text = store.formatDistance
+    timeLabel.text = store.currentOperatingTime
   }
 }
