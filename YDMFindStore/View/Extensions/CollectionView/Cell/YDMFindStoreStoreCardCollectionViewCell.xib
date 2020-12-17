@@ -58,8 +58,8 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp6-pK-oXl">
-                                <rect key="frame" x="118" y="62" width="39" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bp6-pK-oXl">
+                                <rect key="frame" x="118" y="62" width="32.5" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="XPQ-xY-Qig"/>
                                 </constraints>
@@ -117,10 +117,28 @@
                                     <action selector="onWhatsappAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="gPf-pp-Htd"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ts-he-NVq">
+                                <rect key="frame" x="151.5" y="69" width="2" height="2"/>
+                                <color key="tintColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="0Y9-sN-04e"/>
+                                    <constraint firstAttribute="width" constant="2" id="SjR-QG-bnb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horário" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VD-6n-jSy">
+                                <rect key="frame" x="158.5" y="62" width="39" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="6s2-VD-H2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="f1L-h6-skO" secondAttribute="trailing" constant="11" id="1bj-3b-a1M"/>
+                            <constraint firstItem="7VD-6n-jSy" firstAttribute="leading" secondItem="1ts-he-NVq" secondAttribute="trailing" constant="5" id="2qp-Sx-V7U"/>
                             <constraint firstItem="YEl-As-RTY" firstAttribute="top" secondItem="jOQ-Ow-HRq" secondAttribute="top" id="2u5-uQ-NMp"/>
                             <constraint firstItem="YEl-As-RTY" firstAttribute="leading" secondItem="jOQ-Ow-HRq" secondAttribute="leading" id="38H-os-mYm"/>
                             <constraint firstAttribute="trailing" secondItem="P71-Vm-6GR" secondAttribute="trailing" constant="8" id="3eU-UU-e4Y"/>
@@ -129,7 +147,9 @@
                             <constraint firstItem="P71-Vm-6GR" firstAttribute="top" secondItem="ZJ6-3b-O0P" secondAttribute="bottom" constant="5" id="Ajs-B7-ZfA"/>
                             <constraint firstItem="ZJ6-3b-O0P" firstAttribute="top" secondItem="jOQ-Ow-HRq" secondAttribute="top" constant="16" id="Cho-KI-8gI"/>
                             <constraint firstAttribute="trailing" secondItem="ZJ6-3b-O0P" secondAttribute="trailing" constant="70" id="D1u-dl-g7h"/>
+                            <constraint firstItem="1ts-he-NVq" firstAttribute="leading" secondItem="Bp6-pK-oXl" secondAttribute="trailing" constant="1" id="IoA-kW-ebz"/>
                             <constraint firstItem="Bp6-pK-oXl" firstAttribute="leading" secondItem="YEl-As-RTY" secondAttribute="trailing" constant="16" id="KmR-ub-1N1"/>
+                            <constraint firstItem="7VD-6n-jSy" firstAttribute="centerY" secondItem="1ts-he-NVq" secondAttribute="centerY" id="L6l-EW-Tee"/>
                             <constraint firstItem="P71-Vm-6GR" firstAttribute="leading" secondItem="YEl-As-RTY" secondAttribute="trailing" constant="16" id="T3Y-kD-a6q"/>
                             <constraint firstItem="f1L-h6-skO" firstAttribute="leading" secondItem="sD0-PJ-5wi" secondAttribute="trailing" constant="8" id="TDa-d7-yrP"/>
                             <constraint firstAttribute="bottom" secondItem="f1L-h6-skO" secondAttribute="bottom" constant="12" id="U3L-ms-AXp"/>
@@ -137,6 +157,7 @@
                             <constraint firstAttribute="bottom" secondItem="sD0-PJ-5wi" secondAttribute="bottom" constant="12" id="ikE-5G-oZh"/>
                             <constraint firstItem="ddG-PT-gj4" firstAttribute="top" secondItem="jOQ-Ow-HRq" secondAttribute="top" constant="8" id="jAt-mC-Yy0"/>
                             <constraint firstAttribute="bottom" secondItem="YEl-As-RTY" secondAttribute="bottom" id="qqd-GW-a6d"/>
+                            <constraint firstItem="1ts-he-NVq" firstAttribute="centerY" secondItem="Bp6-pK-oXl" secondAttribute="centerY" id="uE9-Xs-r2a"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -156,9 +177,11 @@
                 <outlet property="distanceContainer" destination="ddG-PT-gj4" id="w4d-Ta-4dq"/>
                 <outlet property="distanceLabel" destination="kRF-u4-vD9" id="eUN-bP-XPF"/>
                 <outlet property="logoImageView" destination="7TD-aS-pIv" id="M5A-Qb-2WL"/>
+                <outlet property="pointImageView" destination="1ts-he-NVq" id="U8o-dg-YzG"/>
                 <outlet property="productsButton" destination="sD0-PJ-5wi" id="BAg-72-9Qb"/>
+                <outlet property="statusLabel" destination="Bp6-pK-oXl" id="Ozw-Sr-wzL"/>
                 <outlet property="storeLabel" destination="ZJ6-3b-O0P" id="Cuz-VH-EmI"/>
-                <outlet property="timeLabel" destination="Bp6-pK-oXl" id="IjS-Hd-bul"/>
+                <outlet property="timeLabel" destination="7VD-6n-jSy" id="BBR-rm-G8a"/>
                 <outlet property="whatsappButton" destination="f1L-h6-skO" id="b4V-ly-wk0"/>
             </connections>
             <point key="canvasLocation" x="174.63768115942031" y="122.54464285714285"/>

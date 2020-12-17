@@ -42,6 +42,14 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
 
   @IBOutlet weak var addressLabel: UILabel!
 
+  @IBOutlet weak var statusLabel: UILabel!
+
+  @IBOutlet weak var pointImageView: UIImageView! {
+    didSet {
+      pointImageView.image = Icons.point
+    }
+  }
+
   @IBOutlet weak var timeLabel: UILabel!
 
   @IBOutlet weak var productsButton: UIButton! {
@@ -97,6 +105,15 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
     storeLabel.text = store.name
     addressLabel.text = store.formatAddress
     distanceLabel.text = store.formatDistance
-    timeLabel.text = store.currentOperatingTime
+
+    transformTime(with: store.currentOperatingTime, open: store.open)
+  }
+
+  func transformTime(with time: String, open: Bool) {
+    let status = open ? "aberto" : "fechado"
+    statusLabel.text = status
+    statusLabel.textColor = open ? UIColor.Zeplin.green : UIColor.Zeplin.colorPrimaryLight
+
+    timeLabel.text = time
   }
 }

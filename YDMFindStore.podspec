@@ -4,7 +4,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMFindStore"
-  spec.version      = "1.0.20"
+  spec.version      = "1.0.21"
   spec.summary      = "YDMFindStore."
   spec.homepage     = "http://yourdev/YDMFindStore"
 
@@ -25,5 +25,4 @@ Pod::Spec.new do |spec|
   spec.dependency "YDB2WModels"
 
   spec.dependency "Alamofire", "4.9.1"
-
 end

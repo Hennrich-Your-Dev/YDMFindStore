@@ -13,7 +13,7 @@ public class YDStores: Decodable {
   public let stores: [YDStore]
 }
 
-public class YDStore: NSObject, Decodable {
+@objc public class YDStore: NSObject, Decodable {
 
   // MARK: Properties
   public let id: String
@@ -60,13 +60,25 @@ public class YDStore: NSObject, Decodable {
     calendar.locale = Locale(identifier: "en-US")
 
     let weekDays = calendar.weekdaySymbols
-    guard let todayWeekDay = weekDays.at(calendar.component(.weekday, from: Date()) - 1),
-          let todayStruct = schedules.value(forKey: todayWeekDay) as? YDStoreOperatingDaysStruct
+    guard let todayWeekDay = weekDays.at(calendar.component(.weekday, from: Date()) - 1)
     else {
       return ""
     }
 
-    return "\(todayStruct.start) ás \(todayStruct.end)"
+    guard let todayStruct = schedules.value(forKey: todayWeekDay.lowercased()) as? YDStoreOperatingDaysStruct
+    else {
+      return ""
+    }
+
+    if let start = todayStruct.start {
+      if let end = todayStruct.end {
+        return "\(start) ás \(end)"
+      } else {
+        return "a partir das \(start)"
+      }
+    }
+
+    return ""
   }
 
   public func addressAndStoreName() -> String {
@@ -115,8 +127,8 @@ public class YDStoreGeolocation: Decodable {
 }
 
 @objc public class YDStoreOperatingDaysStruct: NSObject, Decodable {
-  @objc let start: String
-  @objc let end: String
+  @objc let start: String?
+  @objc let end: String?
 }
 
 // MARK: Extension
