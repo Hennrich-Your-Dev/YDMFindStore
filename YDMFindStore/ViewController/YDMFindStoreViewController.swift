@@ -127,8 +127,8 @@ class YDMFindStoreViewController: UIViewController {
     didSet {
       myLocationButton.layer.cornerRadius = myLocationButton.frame.height / 2
       myLocationButton.setImage(Icons.gps, for: .normal)
-      myLocationButton.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-      myLocationButton.imageView?.center = myLocationButton.center
+//      myLocationButton.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+//      myLocationButton.imageView?.center = myLocationButton.center
     }
   }
   
@@ -171,6 +171,15 @@ class YDMFindStoreViewController: UIViewController {
       
       let nearstStoreCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       setMapCenterBetween(positionA: userCoords, positionB: nearstStoreCoords)
+      
+      // To make list scroll to first item
+      do {
+        collectionView.scrollToItem(
+          at: IndexPath(row: 0, section: 0),
+          at: .centeredHorizontally,
+          animated: true
+        )
+      }
       
     } else {
       let span = mapView.region.span

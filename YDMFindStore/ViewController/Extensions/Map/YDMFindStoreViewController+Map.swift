@@ -76,46 +76,46 @@ extension YDMFindStoreViewController {
   // remover chamada
   // setar o zoom do mapa na localização atual do usuario + loja
   // mais próxima
-  func fetchDirection(to store: YDStore) {
-    guard let latitude = store.geolocation?.latitude,
-          let longitude = store.geolocation?.longitude
-    else {
-      return
-    }
-
-    let request = MKDirections.Request()
-    let coords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-
-    request.source = MKMapItem.forCurrentLocation()
-    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coords))
-
-    request.transportType = .automobile
-
-    let directions = MKDirections(request: request)
-
-    directions.calculate { [weak self] response, error in
-      guard let self = self,
-            let response = response,
-            let route = response.routes.first
-      else {
-        return
-      }
-
-      // self.mapView.addOverlay(route.polyline)
-
-      let wPadding = route.polyline.boundingMapRect.size.width * 0.55
-      let hPadding = route.polyline.boundingMapRect.size.height * 0.25
-
-      var rect = route.polyline.boundingMapRect
-      rect.size.width += wPadding
-      rect.size.height += hPadding
-
-      rect.origin.x -= wPadding / 2
-      rect.origin.y -= hPadding / 2
-
-      self.mapView.setVisibleMapRect(rect, animated: true)
-    }
-  }
+//  func fetchDirection(to store: YDStore) {
+//    guard let latitude = store.geolocation?.latitude,
+//          let longitude = store.geolocation?.longitude
+//    else {
+//      return
+//    }
+//
+//    let request = MKDirections.Request()
+//    let coords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//
+//    request.source = MKMapItem.forCurrentLocation()
+//    request.destination = MKMapItem(placemark: MKPlacemark(coordinate: coords))
+//
+//    request.transportType = .automobile
+//
+//    let directions = MKDirections(request: request)
+//
+//    directions.calculate { [weak self] response, error in
+//      guard let self = self,
+//            let response = response,
+//            let route = response.routes.first
+//      else {
+//        return
+//      }
+//
+//      // self.mapView.addOverlay(route.polyline)
+//
+//      let wPadding = route.polyline.boundingMapRect.size.width * 0.55
+//      let hPadding = route.polyline.boundingMapRect.size.height * 0.25
+//
+//      var rect = route.polyline.boundingMapRect
+//      rect.size.width += wPadding
+//      rect.size.height += hPadding
+//
+//      rect.origin.x -= wPadding / 2
+//      rect.origin.y -= hPadding / 2
+//
+//      self.mapView.setVisibleMapRect(rect, animated: true)
+//    }
+//  }
 
   func addPinsOnMap(with stores: [YDStore], shouldCenterMap: Bool = false) {
     mapView.removeAnnotations(mapView.annotations)
@@ -163,12 +163,21 @@ extension YDMFindStoreViewController {
     let p1 = MKMapPoint(positionA)
     let p2 = MKMapPoint(positionB)
     
-    let rect = MKMapRect(
+    var rect = MKMapRect(
       x: fmin(p1.x,p2.x),
       y: fmin(p1.y,p2.y),
       width: fabs(p1.x-p2.x),
       height: fabs(p1.y-p2.y)
     )
+    
+    let wPadding = rect.size.width * 0.55
+    let hPadding = rect.size.height * 0.25
+    
+    rect.size.width += wPadding
+    rect.size.height += hPadding
+
+    rect.origin.x -= wPadding / 2
+    rect.origin.y -= hPadding / 2
     
     mapView.setVisibleMapRect(rect, animated: true)
   }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 import YDUtilities
 import YDExtensions
@@ -33,8 +34,14 @@ extension YDMFindStoreViewController {
         self.locationButton.setTitle(address, for: .normal)
       }
 
-      if let store = location.store {
-        self.fetchDirection(to: store)
+      if let store = location.store,
+         let latitude = store.geolocation?.latitude,
+         let longitude = store.geolocation?.longitude {
+        
+        let userCoords = self.mapView.userLocation.coordinate
+        let nearstStoreCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        self.setMapCenterBetween(positionA: userCoords, positionB: nearstStoreCoords)
       }
     }
 
