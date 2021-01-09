@@ -34,6 +34,8 @@ public class Icons {
   public static let logo = UIImage(named: "logoAcom", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let rightArrow = UIImage(named: "rightArrow", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let map = UIImage(named: "iconMap", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let reload = UIImage(named: "iconReload", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
@@ -46,6 +48,8 @@ public class Icons {
   public static let thumbDownWired = UIImage(named: "iconThumbDownWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let thumbUpWired = UIImage(named: "iconThumbUpWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+  
+  public static let times = UIImage(named: "iconTimes", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 
   public static let userWired = UIImage(named: "iconUserWired", in: podsBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
 

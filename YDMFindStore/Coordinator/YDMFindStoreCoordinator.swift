@@ -33,7 +33,21 @@ public class YDMFindStoreCoordinator {
   public init() {}
 
   // MARK: Actions
-  public func start(navCon: UINavigationController? = nil) {
+  public func start() {
+    guard let viewController = YDMFindStorePreStartViewController.initializeFromStoryboard()
+    else {
+      fatalError("YDMFindStorePreStartViewController.initializeFromStoryboard")
+    }
+    
+    let topViewController = UIApplication.shared.keyWindow?
+      .rootViewController?.topMostViewController()
+    
+    viewController.modalPresentationStyle = .overCurrentContext
+    viewController.modalTransitionStyle = .crossDissolve
+    topViewController?.present(viewController, animated: true, completion: nil)
+  }
+  
+  func startFindStore(navCon: UINavigationController? = nil) {
     guard let viewController = YDMFindStoreViewController.initializeFromStoryboard(),
           let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
           let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
