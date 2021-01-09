@@ -158,6 +158,20 @@ extension YDMFindStoreViewController {
     currentStoreIndex = index
     addPinsOnMap(with: stores, shouldCenterMap: centering)
   }
+  
+  func setMapCenterBetween(positionA: CLLocationCoordinate2D, positionB: CLLocationCoordinate2D) {
+    let p1 = MKMapPoint(positionA)
+    let p2 = MKMapPoint(positionB)
+    
+    let rect = MKMapRect(
+      x: fmin(p1.x,p2.x),
+      y: fmin(p1.y,p2.y),
+      width: fabs(p1.x-p2.x),
+      height: fabs(p1.y-p2.y)
+    )
+    
+    mapView.setVisibleMapRect(rect, animated: true)
+  }
 }
 
 extension YDMFindStoreViewController: MKMapViewDelegate {

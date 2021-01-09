@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -166,6 +166,18 @@
                                     <constraint firstItem="89g-cQ-wY9" firstAttribute="leading" secondItem="8wU-zm-GHf" secondAttribute="leading" id="y59-bJ-hGf"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsE-wH-idS">
+                                <rect key="frame" x="366" y="657" width="32" height="32"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="hnc-Fk-zYg"/>
+                                    <constraint firstAttribute="height" constant="32" id="nqr-zC-BCM"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="onMyLocationAction:" destination="UXH-5u-6h3" eventType="touchUpInside" id="otQ-Qb-eaQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oKQ-9D-c0U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,7 +192,9 @@
                             <constraint firstAttribute="bottomMargin" secondItem="8wU-zm-GHf" secondAttribute="bottom" constant="20" id="PoS-WA-HZC"/>
                             <constraint firstItem="oKQ-9D-c0U" firstAttribute="trailing" secondItem="VKp-y9-d1F" secondAttribute="trailing" id="cmf-f3-cL9"/>
                             <constraint firstItem="c5b-z3-qTh" firstAttribute="top" secondItem="oKQ-9D-c0U" secondAttribute="top" constant="68" id="hoj-jA-i2A"/>
+                            <constraint firstItem="oKQ-9D-c0U" firstAttribute="trailing" secondItem="SsE-wH-idS" secondAttribute="trailing" constant="16" id="iDp-Vd-scK"/>
                             <constraint firstItem="8wU-zm-GHf" firstAttribute="leading" secondItem="oKQ-9D-c0U" secondAttribute="leading" id="t5k-4L-5cy"/>
+                            <constraint firstItem="8wU-zm-GHf" firstAttribute="top" secondItem="SsE-wH-idS" secondAttribute="bottom" constant="-10" id="tSz-td-iMZ"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="top" secondItem="KUn-S1-ePC" secondAttribute="top" id="wKP-lG-6Pu"/>
                             <constraint firstItem="dBT-uJ-toC" firstAttribute="trailing" secondItem="oKQ-9D-c0U" secondAttribute="trailing" id="xCg-fR-oVa"/>
                         </constraints>
@@ -196,6 +210,7 @@
                         <outlet property="locationContainer" destination="c5b-z3-qTh" id="uxL-fv-wtV"/>
                         <outlet property="locationPinIcon" destination="AJN-JP-Hbr" id="SXB-BI-nQf"/>
                         <outlet property="mapView" destination="dBT-uJ-toC" id="p57-Gl-eda"/>
+                        <outlet property="myLocationButton" destination="SsE-wH-idS" id="O0r-Na-dmk"/>
                         <outlet property="navBarContainer" destination="VKp-y9-d1F" id="JNM-Al-aBp"/>
                         <outlet property="storesListContainer" destination="8wU-zm-GHf" id="LuJ-I5-XPa"/>
                     </connections>

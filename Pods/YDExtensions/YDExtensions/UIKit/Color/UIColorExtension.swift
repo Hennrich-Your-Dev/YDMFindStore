@@ -41,11 +41,11 @@ public extension UIColor {
     }
 
     public static var redOpaque: UIColor {
-      return UIColor(red: 1.0, green: 235.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 255.0 / 255.0, green: 235.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
     }
 
     public static var redNight: UIColor {
-      return UIColor(red: 1.0, green: 69.0 / 255.0, blue: 58.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 255.0 / 255.0, green: 69.0 / 255.0, blue: 58.0 / 255.0, alpha: 1.0)
     }
 
     // MARK: Green
@@ -83,15 +83,15 @@ public extension UIColor {
     }
 
     public static var yellowLight: UIColor {
-      return UIColor(red: 1.0, green: 240.0 / 255.0, blue: 2.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 255.0 / 255.0, green: 240.0 / 255.0, blue: 2.0 / 255.0, alpha: 1.0)
     }
 
     public static var yellowNight: UIColor {
-      return UIColor(red: 1.0, green: 214.0 / 255.0, blue: 10.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 255.0, green: 214.0 / 255.0, blue: 10.0 / 255.0, alpha: 1.0)
     }
 
     public static var yellowOpaque: UIColor {
-      return UIColor(red: 1.0, green: 244.0 / 255.0, blue: 180.0 / 255.0, alpha: 1.0)
+      return UIColor(red: 255.0, green: 244.0 / 255.0, blue: 180.0 / 255.0, alpha: 1.0)
     }
 
     // MARK: Blue
@@ -100,11 +100,11 @@ public extension UIColor {
     }
 
     public static var blueLight: UIColor {
-      return UIColor(red: 36.0 / 255.0, green: 203.0 / 255.0, blue: 1.0, alpha: 1.0)
+      return UIColor(red: 36.0 / 255.0, green: 203.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
 
     public static var blueNight: UIColor {
-      return UIColor(red: 100.0 / 255.0, green: 210.0 / 255.0, blue: 1.0, alpha: 1.0)
+      return UIColor(red: 100.0 / 255.0, green: 210.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
     }
 
     public static var blueOpaque: UIColor {

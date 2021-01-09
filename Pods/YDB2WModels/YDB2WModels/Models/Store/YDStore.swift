@@ -13,7 +13,7 @@ public class YDStores: Decodable {
   public let stores: [YDStore]
 }
 
-@objc public class YDStore: NSObject, Decodable {
+public class YDStore: Decodable {
 
   // MARK: Properties
   public let id: String
@@ -21,7 +21,7 @@ public class YDStores: Decodable {
   public let sellerID: String
   public let sellerStoreID: String
   public let open: Bool
-  @objc public let schedules: YDStoreOperatingDays?
+  public let schedules: YDStoreOperatingDays?
 
   public let distance: Double
   public let address: YDAddress?
@@ -46,8 +46,8 @@ public class YDStores: Decodable {
     let kilometers = Measurement(value: distance, unit: UnitLength.kilometers)
     let meters = kilometers.converted(to: .meters)
     let formated = meters.value >= 1000 ?
-      "\(kilometers.value.round(to: 2)) \(kilometers.unit.symbol)" :
-      "\(meters.value.round(to: 2)) \(meters.unit.symbol)"
+      "\(kilometers.value.round(to: 1)) \(kilometers.unit.symbol)" :
+      "\(meters.value.round(to: 1)) \(meters.unit.symbol)"
     return formated
   }
 
@@ -60,12 +60,8 @@ public class YDStores: Decodable {
     calendar.locale = Locale(identifier: "en-US")
 
     let weekDays = calendar.weekdaySymbols
-    guard let todayWeekDay = weekDays.at(calendar.component(.weekday, from: Date()) - 1)
-    else {
-      return ""
-    }
-
-    guard let todayStruct = schedules.value(forKey: todayWeekDay.lowercased()) as? YDStoreOperatingDaysStruct
+    guard let todayWeekDay = weekDays.at(calendar.component(.weekday, from: Date()) - 1),
+          let todayStruct = schedules[todayWeekDay]
     else {
       return ""
     }
@@ -73,9 +69,9 @@ public class YDStores: Decodable {
     if let start = todayStruct.start {
       if let end = todayStruct.end {
         return "\(start) ás \(end)"
-      } else {
-        return "a partir das \(start)"
       }
+
+      return "A partir das \(start)"
     }
 
     return ""
@@ -116,19 +112,40 @@ public class YDStoreGeolocation: Decodable {
 }
 
 // MARK: YDStoreOperatingDays
-@objc public class YDStoreOperatingDays: NSObject, Decodable {
-  @objc let monday: YDStoreOperatingDaysStruct?
-  @objc let tuesday: YDStoreOperatingDaysStruct?
-  @objc let wednesday: YDStoreOperatingDaysStruct?
-  @objc let thursday: YDStoreOperatingDaysStruct?
-  @objc let friday: YDStoreOperatingDaysStruct?
-  @objc let saturday: YDStoreOperatingDaysStruct?
-  @objc let sunday: YDStoreOperatingDaysStruct?
+public class YDStoreOperatingDays: Decodable {
+  let monday: YDStoreOperatingDaysStruct?
+  let tuesday: YDStoreOperatingDaysStruct?
+  let wednesday: YDStoreOperatingDaysStruct?
+  let thursday: YDStoreOperatingDaysStruct?
+  let friday: YDStoreOperatingDaysStruct?
+  let saturday: YDStoreOperatingDaysStruct?
+  let sunday: YDStoreOperatingDaysStruct?
+
+  subscript(_ key: String) -> YDStoreOperatingDaysStruct? {
+    switch key.lowercased() {
+    case "monday":
+      return monday
+    case "tuesday":
+      return tuesday
+    case "wednesday":
+      return wednesday
+    case "thursday":
+      return thursday
+    case "friday":
+      return friday
+    case "saturday":
+      return saturday
+    case "sunday":
+      return sunday
+    default:
+      return nil
+    }
+  }
 }
 
-@objc public class YDStoreOperatingDaysStruct: NSObject, Decodable {
-  @objc let start: String?
-  @objc let end: String?
+public class YDStoreOperatingDaysStruct: NSObject, Decodable {
+  let start: String?
+  let end: String?
 }
 
 // MARK: Extension

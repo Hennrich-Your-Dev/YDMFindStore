@@ -5,7 +5,7 @@ install! 'cocoapods',
   :preserve_pod_file_structure => true
 
 source 'https://cdn.cocoapods.org/'
-source 'git@github.com-yourdev:Hennrich-Your-Dev/YourDev-Pods.git'
+source 'git@github.com:Hennrich-Your-Dev/YourDev-Pods.git'
 
 target 'YDMFindStore' do
   # Comment the next line if you don't want to use dynamic frameworks

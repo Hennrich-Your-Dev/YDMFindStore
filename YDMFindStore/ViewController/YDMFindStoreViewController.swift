@@ -122,7 +122,16 @@ class YDMFindStoreViewController: UIViewController {
       )
     }
   }
-
+  
+  @IBOutlet weak var myLocationButton: UIButton! {
+    didSet {
+      myLocationButton.layer.cornerRadius = myLocationButton.frame.height / 2
+      myLocationButton.setImage(Icons.gps, for: .normal)
+      myLocationButton.imageView?.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+      myLocationButton.imageView?.center = myLocationButton.center
+    }
+  }
+  
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -151,6 +160,22 @@ class YDMFindStoreViewController: UIViewController {
   @IBAction func onLocationAction(_ sender: Any) {
     locationActivity()
     viewModel?.onGetLocation()
+  }
+  
+  @IBAction func onMyLocationAction(_ sender: UIButton) {
+    let userCoords = mapView.userLocation.coordinate
+    
+    if let firstStoreCoords = viewModel?.stores.value.first?.geolocation,
+       let latitude = firstStoreCoords.latitude,
+       let longitude = firstStoreCoords.longitude {
+      
+      let nearstStoreCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+      setMapCenterBetween(positionA: userCoords, positionB: nearstStoreCoords)
+      
+    } else {
+      let span = mapView.region.span
+      zoomToPosition(userCoords, withSpan: span)
+    }
   }
 }
 
