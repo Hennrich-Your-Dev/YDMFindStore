@@ -71,6 +71,11 @@ extension YDMFindStoreViewModel {
 // MARK: YDLocation delegate
 extension YDMFindStoreViewModel: YDLocationDelegate {
 
+  func onStatusChange(_ status: CLAuthorizationStatus) {
+    //
+    print("[YDLocation] status changed")
+  }
+  
   public func permissionDenied() {
     print(#function)
     location.fire()

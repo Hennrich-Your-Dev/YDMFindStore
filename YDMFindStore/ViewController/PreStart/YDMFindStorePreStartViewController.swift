@@ -58,7 +58,7 @@ class YDMFindStorePreStartViewController: UIViewController {
   }
   
   @IBAction func onButtonAction(_ sender: UIButton) {
-    viewModel?.openSettings()
+    viewModel?.openButtonAction()
   }
 }
 
