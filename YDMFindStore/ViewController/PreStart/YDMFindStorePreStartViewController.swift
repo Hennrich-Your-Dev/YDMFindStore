@@ -8,9 +8,11 @@
 import UIKit
 
 import YDB2WAssets
+import YDLocationModule
 
 class YDMFindStorePreStartViewController: UIViewController {
   // MARK: Properties
+  var viewModel: YDMFindStorePreStartViewModelDelegate?
   
   // MARK: IBOutlets
   @IBOutlet weak var backButton: UIButton! {
@@ -19,6 +21,8 @@ class YDMFindStorePreStartViewController: UIViewController {
       backButton.setImage(Icons.times, for: .normal)
     }
   }
+  
+  @IBOutlet weak var permissionView: UIView!
   
   @IBOutlet weak var iconImageView: UIImageView! {
     didSet {
@@ -36,10 +40,16 @@ class YDMFindStorePreStartViewController: UIViewController {
     }
   }
   
+  @IBOutlet weak var loadingView: UIView!
+  
+  @IBOutlet weak var loadingImageView: UIImageView!
+  
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    setBinds()
+    viewModel?.getCurrentLocation()
   }
   
   // MARK: IBActions
@@ -48,6 +58,20 @@ class YDMFindStorePreStartViewController: UIViewController {
   }
   
   @IBAction func onButtonAction(_ sender: UIButton) {
-    
+    viewModel?.openSettings()
+  }
+}
+
+// MARK: Binds
+extension YDMFindStorePreStartViewController {
+  func setBinds() {
+    viewModel?.showPermission.bind { [weak self] show in
+      guard let self = self else { return }
+      
+      UIView.animate(withDuration: 0.3) {
+        self.permissionView.isHidden = show
+        self.loadingView.isHidden = !show
+      }
+    }
   }
 }

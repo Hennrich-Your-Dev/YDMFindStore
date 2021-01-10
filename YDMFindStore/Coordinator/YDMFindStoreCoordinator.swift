@@ -39,10 +39,13 @@ public class YDMFindStoreCoordinator {
       fatalError("YDMFindStorePreStartViewController.initializeFromStoryboard")
     }
     
+    let viewModel = YDMFindStorePreStartViewModel(navigation: self)
+    viewController.viewModel = viewModel
+    
     let topViewController = UIApplication.shared.keyWindow?
       .rootViewController?.topMostViewController()
     
-    viewController.modalPresentationStyle = .overCurrentContext
+    // viewController.modalPresentationStyle = .overCurrentContext
     viewController.modalTransitionStyle = .crossDissolve
     topViewController?.present(viewController, animated: true, completion: nil)
   }
@@ -103,4 +106,16 @@ extension YDMFindStoreCoordinator: YDMFindStoreNavigationDelegate {
 //
 //    navigationController.pushViewController(viewController, animated: true)
 //  }
+}
+
+// MARK: Pre Start Navigation Delegate
+extension YDMFindStoreCoordinator: YDMFindStorePreStartNavigationDelegate {
+  func openFindStore() {
+    let topViewController = UIApplication.shared.keyWindow?
+      .rootViewController?.topMostViewController()
+    
+    topViewController?.dismiss(animated: true, completion: { [weak self] in
+      self?.startFindStore()
+    })
+  }
 }

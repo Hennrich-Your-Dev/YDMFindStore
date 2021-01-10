@@ -98,6 +98,8 @@ extension YDLocation: CLLocationManagerDelegate {
     if !canTrigger {
       return
     }
+    
+    delegate?.onStatusChange(status)
 
     if status == .authorizedWhenInUse {
       searchForCurrentLocation()
