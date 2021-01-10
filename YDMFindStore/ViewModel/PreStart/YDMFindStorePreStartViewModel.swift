@@ -84,6 +84,8 @@ extension YDMFindStorePreStartViewModel: YDLocationDelegate {
   }
 
   public func onLocation(_ location: CLLocation) {
-    navigation.openFindStore()
+    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
+      self.navigation.openFindStore()
+    }
   }
 }

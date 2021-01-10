@@ -22,7 +22,11 @@ class YDMFindStorePreStartViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var permissionView: UIView!
+  @IBOutlet weak var permissionView: UIView! {
+    didSet {
+      permissionView.backgroundColor = .clear
+    }
+  }
   
   @IBOutlet weak var iconImageView: UIImageView! {
     didSet {
@@ -40,13 +44,21 @@ class YDMFindStorePreStartViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var loadingView: UIView!
+  @IBOutlet weak var loadingView: UIView! {
+    didSet {
+      loadingView.backgroundColor = .clear
+    }
+  }
   
   @IBOutlet weak var loadingImageView: UIImageView!
   
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if let image = Images.map {
+      view.backgroundColor = UIColor(patternImage: image)
+    }
     
     setBinds()
     viewModel?.getCurrentLocation()

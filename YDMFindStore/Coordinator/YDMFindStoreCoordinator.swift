@@ -45,7 +45,7 @@ public class YDMFindStoreCoordinator {
     let topViewController = UIApplication.shared.keyWindow?
       .rootViewController?.topMostViewController()
     
-    // viewController.modalPresentationStyle = .overCurrentContext
+    viewController.modalPresentationStyle = .overFullScreen
     viewController.modalTransitionStyle = .crossDissolve
     topViewController?.present(viewController, animated: true, completion: nil)
   }
