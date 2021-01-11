@@ -67,6 +67,11 @@
                                     <constraint firstItem="PWu-oF-Qq7" firstAttribute="centerY" secondItem="VKp-y9-d1F" secondAttribute="centerY" id="vaF-rN-zNl"/>
                                     <constraint firstItem="Wqg-BA-0yW" firstAttribute="leading" secondItem="VKp-y9-d1F" secondAttribute="leading" constant="16" id="wzu-yw-OYk"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="54L-ze-xPP"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5b-z3-qTh">
                                 <rect key="frame" x="0.0" y="112" width="414" height="22"/>
