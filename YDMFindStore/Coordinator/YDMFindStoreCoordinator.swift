@@ -47,7 +47,9 @@ public class YDMFindStoreCoordinator {
     
     viewController.modalPresentationStyle = .overFullScreen
     viewController.modalTransitionStyle = .crossDissolve
-    topViewController?.present(viewController, animated: true, completion: nil)
+    
+    navigationController.viewControllers = [viewController]
+    topViewController?.present(navigationController, animated: true, completion: nil)
   }
   
   func startFindStore(navCon: UINavigationController? = nil) {
@@ -59,11 +61,7 @@ public class YDMFindStoreCoordinator {
       fatalError("YDMFindStoreViewController.initializeFromStoryboard")
     }
 
-    let topViewController = UIApplication.shared.keyWindow?
-      .rootViewController?.topMostViewController()
-
     let service = YDServiceClient()
-
     let serviceFindStore = YDMFindStoreService(service: service, storesUrl: storesUrl)
 
     let serviceReverseGeocoder = YDMFindStoreReverseGeocoderService(
@@ -77,15 +75,8 @@ public class YDMFindStoreCoordinator {
       geocoder: serviceReverseGeocoder
     )
     viewController.viewModel = findStoreViewModel
-
-    if let nav = navCon {
-      navigationController = nav
-      navigationController.pushViewController(viewController, animated: true)
-
-    } else {
-      navigationController.viewControllers = [viewController]
-      topViewController?.present(navigationController, animated: true)
-    }
+    
+    navigationController.pushViewController(viewController, animated: false)
   }
 }
 
@@ -94,28 +85,11 @@ extension YDMFindStoreCoordinator: YDMFindStoreNavigationDelegate {
   func onExit() {
     rootViewController.dismiss(animated: true, completion: nil)
   }
-
-//  func openRating() {
-//    guard let viewController = YDMRatingViewController.initializeFromStoryboard() else {
-//      fatalError("YDMRatingViewController.initializeFromStoryboard")
-//    }
-//
-//    viewController.hero.isEnabled = true
-//    viewController.hero.modalAnimationType = .fade
-//    viewController.viewModel = rateViewModel
-//
-//    navigationController.pushViewController(viewController, animated: true)
-//  }
 }
 
 // MARK: Pre Start Navigation Delegate
 extension YDMFindStoreCoordinator: YDMFindStorePreStartNavigationDelegate {
   func openFindStore() {
-    let topViewController = UIApplication.shared.keyWindow?
-      .rootViewController?.topMostViewController()
-    
-    topViewController?.dismiss(animated: true, completion: { [weak self] in
-      self?.startFindStore()
-    })
+    startFindStore()
   }
 }
