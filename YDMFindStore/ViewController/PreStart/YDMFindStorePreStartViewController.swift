@@ -50,8 +50,6 @@ class YDMFindStorePreStartViewController: UIViewController {
     }
   }
   
-  @IBOutlet weak var loadingImageView: UIImageView!
-  
   // MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
