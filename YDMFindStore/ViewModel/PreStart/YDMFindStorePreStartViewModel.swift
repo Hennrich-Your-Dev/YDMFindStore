@@ -80,12 +80,16 @@ extension YDMFindStorePreStartViewModel: YDLocationDelegate {
   
   func onStatusChange(_ status: CLAuthorizationStatus) {
     //
-    print("[YDLocation] status changed")
+    // print("[YDLocation] status changed")
+    
+    if status == .notDetermined {
+      showPermission.value = true
+    } else if status == .authorizedWhenInUse {
+      showPermission.value = false
+    }
   }
 
   public func onLocation(_ location: CLLocation) {
-    Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { _ in
-      self.navigation.openFindStore()
-    }
+    self.navigation.openFindStore()
   }
 }

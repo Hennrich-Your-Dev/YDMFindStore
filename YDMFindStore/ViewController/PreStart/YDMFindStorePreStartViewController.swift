@@ -81,8 +81,8 @@ extension YDMFindStorePreStartViewController {
       guard let self = self else { return }
       
       UIView.animate(withDuration: 0.3) {
-        self.permissionView.isHidden = show
-        self.loadingView.isHidden = !show
+        self.permissionView.isHidden = !show
+        self.loadingView.isHidden = show
       }
     }
   }
