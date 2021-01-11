@@ -15,10 +15,16 @@ class YDMFindStorePreStartViewController: UIViewController {
   var viewModel: YDMFindStorePreStartViewModelDelegate?
   
   // MARK: IBOutlets
+  @IBOutlet weak var navBarView: UIView! {
+    didSet {
+      navBarView.backgroundColor = .clear
+    }
+  }
+  
   @IBOutlet weak var backButton: UIButton! {
     didSet {
       backButton.layer.cornerRadius = backButton.frame.height / 2
-      backButton.setImage(Icons.times, for: .normal)
+      backButton.setImage(Icons.leftArrow, for: .normal)
     }
   }
   

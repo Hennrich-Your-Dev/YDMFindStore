@@ -248,8 +248,8 @@
 			isa = PBXGroup;
 			children = (
 				C10DD29D2583CBB000A4F7AB /* Extensions */,
-				C15556C42571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard */,
 				A5805A1125AB188D00C08A4D /* PreStart */,
+				C15556C42571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
