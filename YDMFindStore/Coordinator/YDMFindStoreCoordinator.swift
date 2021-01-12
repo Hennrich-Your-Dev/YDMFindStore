@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 import YDB2WIntegration
 import YDExtensions
@@ -52,7 +53,7 @@ public class YDMFindStoreCoordinator {
     topViewController?.present(navigationController, animated: true, completion: nil)
   }
   
-  func startFindStore(navCon: UINavigationController? = nil) {
+  func startFindStore(userLocation: CLLocationCoordinate2D) {
     guard let viewController = YDMFindStoreViewController.initializeFromStoryboard(),
           let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
           let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
@@ -89,7 +90,7 @@ extension YDMFindStoreCoordinator: YDMFindStoreNavigationDelegate {
 
 // MARK: Pre Start Navigation Delegate
 extension YDMFindStoreCoordinator: YDMFindStorePreStartNavigationDelegate {
-  func openFindStore() {
-    startFindStore()
+  func openFindStore(with coords: CLLocationCoordinate2D) {
+    startFindStore(userLocation: coords)
   }
 }

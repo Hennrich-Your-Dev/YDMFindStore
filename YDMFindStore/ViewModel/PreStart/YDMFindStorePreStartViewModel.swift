@@ -13,7 +13,7 @@ import YDLocationModule
 
 // MARK: Navigation Delegate
 protocol YDMFindStorePreStartNavigationDelegate {
-  func openFindStore()
+  func openFindStore(with coords: CLLocationCoordinate2D)
 }
 
 // MARK: Delegate
@@ -90,6 +90,6 @@ extension YDMFindStorePreStartViewModel: YDLocationDelegate {
   }
 
   public func onLocation(_ location: CLLocation) {
-    self.navigation.openFindStore()
+    self.navigation.openFindStore(with: location.coordinate)
   }
 }
