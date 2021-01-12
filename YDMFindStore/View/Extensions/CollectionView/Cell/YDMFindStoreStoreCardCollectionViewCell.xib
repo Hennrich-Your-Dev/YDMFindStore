@@ -156,8 +156,14 @@
                             <constraint firstAttribute="bottom" secondItem="sD0-PJ-5wi" secondAttribute="bottom" constant="12" id="ikE-5G-oZh"/>
                             <constraint firstItem="ddG-PT-gj4" firstAttribute="top" secondItem="jOQ-Ow-HRq" secondAttribute="top" constant="8" id="jAt-mC-Yy0"/>
                             <constraint firstAttribute="bottom" secondItem="YEl-As-RTY" secondAttribute="bottom" id="qqd-GW-a6d"/>
+                            <constraint firstItem="sD0-PJ-5wi" firstAttribute="leading" secondItem="YEl-As-RTY" secondAttribute="trailing" constant="16" id="ryP-0g-WSy"/>
                             <constraint firstItem="1ts-he-NVq" firstAttribute="centerY" secondItem="Bp6-pK-oXl" secondAttribute="centerY" id="uE9-Xs-r2a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="f1L-h6-skO"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
