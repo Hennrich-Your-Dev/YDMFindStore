@@ -95,6 +95,11 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>YDExtensions-YDExtensions.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>YDExtensions.xcscheme</key>
 		<dict>
 			<key>isShown</key>

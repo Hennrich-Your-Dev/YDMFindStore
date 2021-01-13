@@ -18,6 +18,7 @@ class YDMFindStoreViewController: UIViewController {
   var viewModel: YDMFindStoreViewModelDelegate?
   var alreadyPlaceCurrentLocationMarker = false
   var annotations: [MKAnnotation] = []
+  var initialCoords: CLLocationCoordinate2D?
   var reAdjustinRect = false
   var currentStoreIndex = 0
 
@@ -146,6 +147,14 @@ class YDMFindStoreViewController: UIViewController {
 
   deinit {
     mapView.delegate = nil
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    if let coords = initialCoords {
+      zoomToPosition(coords)
+    }
   }
 
   // MARK: IBActions

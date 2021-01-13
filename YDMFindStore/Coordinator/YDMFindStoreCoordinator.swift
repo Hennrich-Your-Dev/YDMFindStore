@@ -76,6 +76,8 @@ public class YDMFindStoreCoordinator {
       geocoder: serviceReverseGeocoder
     )
     viewController.viewModel = findStoreViewModel
+
+    viewController.initialCoords = userLocation
     
     navigationController.pushViewController(viewController, animated: false)
   }
