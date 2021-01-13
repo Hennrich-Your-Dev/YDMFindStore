@@ -95,10 +95,12 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>YDExtensions-YDExtensions.xcscheme_^#shared#^_</key>
+		<key>YDExtensions-YDExtensions.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>15</integer>
 		</dict>
 		<key>YDExtensions.xcscheme</key>
 		<dict>
@@ -112,14 +114,14 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 		<key>YDUtilities.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>17</integer>
 		</dict>
 		<key>libwebp.xcscheme</key>
 		<dict>
