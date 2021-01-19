@@ -55,9 +55,8 @@ public class YDMFindStoreCoordinator {
   
   func startFindStore(userLocation: CLLocationCoordinate2D) {
     guard let viewController = YDMFindStoreViewController.initializeFromStoryboard(),
-          let config = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.store.rawValue),
-          let storesUrl = config.extras?[YDConfigProperty.storesUrl.rawValue] as? String,
-          let addressUrl = config.extras?[YDConfigProperty.addressUrl.rawValue] as? String
+          let storesUrl = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.storeService.rawValue)?.endpoint,
+          let addressUrl = YDIntegrationHelper.shared.getFeature(featureName: YDConfigKeys.addressService.rawValue)?.endpoint
     else {
       fatalError("YDMFindStoreViewController.initializeFromStoryboard")
     }

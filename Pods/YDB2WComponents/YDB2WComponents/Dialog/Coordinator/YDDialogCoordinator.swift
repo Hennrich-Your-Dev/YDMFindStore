@@ -34,7 +34,12 @@ public class YDDialogCoordinator {
   public init() {}
 
   // MARK: Actions
-  public func start() {
+  public func start(
+    ofType type: YDDialogType = .withIcon,
+    customIcon: UIImage? = nil,
+    customTitle: String? = nil,
+    customMessage: String? = nil
+  ) {
     guard let viewController = YDDialogViewController.initializeFromStoryboard() else {
       fatalError("YDDialogViewController.initializeFromStoryboard")
     }
@@ -44,6 +49,11 @@ public class YDDialogCoordinator {
     let viewModel = YDDialogViewModel(navigation: self)
 
     viewController.viewModel = viewModel
+    viewController.type = type
+
+    viewController.customIcon = customIcon
+    viewController.customTitle = customTitle
+    viewController.customMessage = customMessage
 
     navigationController.viewControllers = [viewController]
     navigationController.modalPresentationStyle = .overCurrentContext

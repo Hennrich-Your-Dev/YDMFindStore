@@ -46,9 +46,9 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
     guard let config = YDIntegrationHelper.shared
             .getFeature(featureName: YDConfigKeys.store.rawValue),
           let extras = config.extras,
-          let storesUrl = extras[YDConfigProperty.storesUrl.rawValue] as? String,
-          let type = extras[YDConfigProperty.storesType.rawValue] as? String,
-          let radius = extras[YDConfigProperty.maxStoreRange.rawValue] as? String
+          let storesUrl = YDIntegrationHelper.shared
+            .getFeature(featureName: YDConfigKeys.storeService.rawValue)?.endpoint,
+          let radius = extras[YDConfigProperty.maxStoreRange.rawValue] as? Double
     else {
       fatalError("Can't get url extras")
     }
@@ -56,7 +56,7 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
     let parameters: [String: Any] = [
       "latitude": location.latitude,
       "longitude": location.longitude,
-      "type": type,
+      "type": "PICK_UP_IN_STORE",
       "radius": radius
     ]
 
