@@ -27,6 +27,7 @@ public enum YDConfigProperty: String {
 
   // Store Mode
   case npsEnabled
+  case npsFeedbackMessage
   case productsQueryVersion = "lasaB2WProductsQueryVersion"
 
   // Live
@@ -36,48 +37,10 @@ public enum YDConfigProperty: String {
   case liveYouTubePlayerResetVideoWhenPaused
   case liveYouTubePlayerEnableFullScreenButton
 
-  case liveChatId = "liveHotsite"
+  case liveHotsiteId = "liveHotsite"
   case liveChatEnabled = "chatEnabled"
   case liveChatLikesEnabled = "chatLikesEnabled"
   case liveChatPolling = "liveChatPolling"
   case liveChatLimit
+  case liveChatSendDelay
 }
-
-//public enum YDConfigProperty: String {
-//  // Search stores
-//  case maxStoreRange = "acheUmaLojaFeatureNearbyStores"
-//  case storesType
-//  case storesUrl
-//  case storeModeProducts
-//
-//  // Search products
-//  case productsUrl
-//  case customerId
-//
-//  // Search address
-//  case addressUrl
-//
-//  // API
-//  case endpoint
-//
-//  // Store
-//  case storeNPSEnabled = "npsEnabled"
-//  case storeNPSFeedbackMessage = "npsFeedbackMessage"
-//
-//  // Live
-//  case liveHotsiteUrl
-//  case liveProductsUrl
-//
-//  case liveSpaceyOrder
-//  case liveChatPoolling
-//  case liveChatLimit
-//  case liveChatOffset
-//  case liveChatEnabled = "chatEnabled"
-//
-//  case liveChatGetMessagesUrl = "b2wChatApiURl"
-//  case liveChatSendMessageUrl
-//  case liveChatLikeUrl
-//  case liveChatSendDelay
-//
-//  case liveChatLikeButtonEnabled = "chatLikesEnabled"
-//}

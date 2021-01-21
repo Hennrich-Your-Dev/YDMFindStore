@@ -46,7 +46,7 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
     guard let config = YDIntegrationHelper.shared
             .getFeature(featureName: YDConfigKeys.store.rawValue),
           let extras = config.extras,
-          let storesUrl = YDIntegrationHelper.shared
+          var storesUrl = YDIntegrationHelper.shared
             .getFeature(featureName: YDConfigKeys.storeService.rawValue)?.endpoint,
           let radius = extras[YDConfigProperty.maxStoreRange.rawValue] as? Double
     else {
@@ -59,6 +59,8 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
       "type": "PICK_UP_IN_STORE",
       "radius": radius
     ]
+
+    storesUrl += "/store"
 
     service.request(
       withUrl: storesUrl,
