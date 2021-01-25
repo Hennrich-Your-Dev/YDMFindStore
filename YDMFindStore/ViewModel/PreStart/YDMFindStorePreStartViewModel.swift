@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+import YDB2WIntegration
 import YDUtilities
 import YDLocationModule
 
@@ -36,6 +37,11 @@ class YDMFindStorePreStartViewModel {
   init(navigation: YDMFindStorePreStartNavigationDelegate) {
     self.navigation = navigation
   }
+
+  // MARK: Actions
+  func trackDeniedMetric() {
+    YDIntegrationHelper.shared.trackEvent(withName: .findStoreViewDenied, ofType: .state)
+  }
 }
 
 // MARK: extend delegate
@@ -46,6 +52,10 @@ extension YDMFindStorePreStartViewModel: YDMFindStorePreStartViewModelDelegate {
     
     if locationManager.getStatus() == .denied || locationManager.getStatus() == .notDetermined {
       showPermission.value = true
+
+      if locationManager.getStatus() == .denied {
+        trackDeniedMetric()
+      }
       
     } else {
       locationManager.start()

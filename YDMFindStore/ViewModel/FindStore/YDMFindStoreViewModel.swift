@@ -22,6 +22,7 @@ protocol YDMFindStoreViewModelDelegate {
   var location: Binder<YDLocationViewModel?> { get }
   var stores: Binder<[YDStore]> { get }
 
+  func trackMetric()
   func getPreviousAddress()
   subscript(_ index: Int) -> YDStore? { get }
 
@@ -64,6 +65,10 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
 
   subscript(_ index: Int) -> YDStore? {
     return stores.value.at(index)
+  }
+
+  func trackMetric() {
+    YDIntegrationHelper.shared.trackEvent(withName: .findStoreView, ofType: .state)
   }
 
   func getPreviousAddress() {
