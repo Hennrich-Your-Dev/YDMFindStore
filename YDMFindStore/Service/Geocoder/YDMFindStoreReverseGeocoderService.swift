@@ -15,7 +15,7 @@ import YDUtilities
 protocol YDMFindStoreReverseGeocoderServiceDelegate: AnyObject {
   func getAddress(
     with location: CLLocationCoordinate2D,
-    onCompletion: @escaping (Result<YDAddress, Error>) -> Void
+    onCompletion: @escaping (Result<YDAddress, YDServiceError>) -> Void
   )
 }
 
@@ -40,7 +40,7 @@ class YDMFindStoreReverseGeocoderService {
 extension YDMFindStoreReverseGeocoderService: YDMFindStoreReverseGeocoderServiceDelegate {
   func getAddress(
     with location: CLLocationCoordinate2D,
-    onCompletion: @escaping (Result<YDAddress, Error>) -> Void
+    onCompletion: @escaping (Result<YDAddress, YDServiceError>) -> Void
   ) {
 
     let parameters = [
@@ -52,7 +52,7 @@ extension YDMFindStoreReverseGeocoderService: YDMFindStoreReverseGeocoderService
       withUrl: reverseGeocodeUrl,
       withMethod: .get,
       andParameters: parameters
-    ) { (response: Result<[YDAddress], Error>) in
+    ) { (response: Result<[YDAddress], YDServiceError>) in
       switch response {
       case .success(let addresses):
         if let address = addresses.first {

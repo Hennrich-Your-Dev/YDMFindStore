@@ -16,7 +16,7 @@ import YDUtilities
 protocol YDMFindStoreServiceDelegate: AnyObject {
   func getNearstLasas(
     with location: CLLocationCoordinate2D,
-    onCompletion: @escaping (Result<[YDStore], Error>) -> Void
+    onCompletion: @escaping (Result<[YDStore], YDServiceError>) -> Void
   )
 }
 
@@ -41,7 +41,7 @@ class YDMFindStoreService {
 extension YDMFindStoreService: YDMFindStoreServiceDelegate {
   func getNearstLasas(
     with location: CLLocationCoordinate2D,
-    onCompletion: @escaping (Result<[YDStore], Error>) -> Void
+    onCompletion: @escaping (Result<[YDStore], YDServiceError>) -> Void
   ) {
     guard let config = YDIntegrationHelper.shared
             .getFeature(featureName: YDConfigKeys.store.rawValue),
@@ -65,7 +65,7 @@ extension YDMFindStoreService: YDMFindStoreServiceDelegate {
     service.request(
       withUrl: storesUrl,
       withMethod: .get,
-      andParameters: parameters) { (response: Result<YDStores, Error>) in
+      andParameters: parameters) { (response: Result<YDStores, YDServiceError>) in
       switch response {
       case .success(let stores):
         let sorted = stores.stores.sorted { $0.distance < $1.distance }

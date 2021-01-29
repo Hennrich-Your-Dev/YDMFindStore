@@ -11,6 +11,7 @@ import CoreLocation
 import YDB2WIntegration
 import YDLocationModule
 import YDB2WModels
+import YDUtilities
 
 extension YDMFindStoreViewModel {
 
@@ -40,7 +41,7 @@ extension YDMFindStoreViewModel {
     givingType type: YDAddressType? = .unknown
   ) {
     DispatchQueue.global().async { [weak self] in
-      self?.service.getNearstLasas(with: location) { [weak self] (response: Result<[YDStore], Error>) in
+      self?.service.getNearstLasas(with: location) { [weak self] (response: Result<[YDStore], YDServiceError>) in
         switch response {
         case .success(let stores):
           var currentAddress = address
