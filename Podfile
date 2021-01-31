@@ -19,7 +19,8 @@ target 'YDMFindStore' do
   pod 'YDB2WComponents'
   pod 'YDB2WModels'
 
-  # Pods for YDMHome
+
   pod 'Alamofire', '4.9.1'
+  pod 'curvyRoute'
 
 end
