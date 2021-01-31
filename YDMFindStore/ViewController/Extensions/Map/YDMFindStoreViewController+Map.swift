@@ -104,6 +104,9 @@ extension YDMFindStoreViewController {
 
       let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng)
       zoomToPosition(coordinate, withSpan: mapView.region.span)
+
+      let userCoordinate = mapView.userLocation.coordinate
+      createPolylineBetweenPoints(pointA: userCoordinate, pointB: coordinate)
     }
   }
 
@@ -115,32 +118,34 @@ extension YDMFindStoreViewController {
     currentStoreIndex = index
     addPinsOnMap(with: stores, shouldCenterMap: centering)
   }
-  
+
   func setMapCenterBetween(positionA: CLLocationCoordinate2D, positionB: CLLocationCoordinate2D) {
     let p1 = MKMapPoint(positionA)
     let p2 = MKMapPoint(positionB)
     createPolylineBetweenPoints(pointA: positionA, pointB: positionB)
-    
+
     var rect = MKMapRect(
       x: fmin(p1.x,p2.x),
       y: fmin(p1.y,p2.y),
       width: fabs(p1.x-p2.x),
       height: fabs(p1.y-p2.y)
     )
-    
+
     let wPadding = rect.size.width * 0.55
     let hPadding = rect.size.height * 0.25
-    
+
     rect.size.width += wPadding
     rect.size.height += hPadding
 
     rect.origin.x -= wPadding / 2
     rect.origin.y -= hPadding / 2
-    
+
     mapView.setVisibleMapRect(rect, animated: true)
   }
 
   func createPolylineBetweenPoints(pointA: CLLocationCoordinate2D, pointB: CLLocationCoordinate2D) {
+    mapView.removeOverlays(mapView.overlays)
+
     let polyline = LineOverlay(origin: pointA, destination: pointB)
     mapView.addOverlay(polyline)
 
@@ -156,7 +161,7 @@ extension YDMFindStoreViewController {
       style: style
     )
 
-    arc.radiusMultiplier = 1
+    arc.radiusMultiplier = 0.5
     mapView.addOverlay(arc)
   }
 }
