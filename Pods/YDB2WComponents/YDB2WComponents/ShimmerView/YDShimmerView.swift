@@ -7,11 +7,13 @@
 
 import UIKit
 
+import YDExtensions
+
 public class YDShimmerView: UIView {
   // MARK: Properties
-  public var gradientColorOne: CGColor = UIColor(white: 0.85, alpha: 1.0).cgColor
-  public var gradientColorTwo: CGColor = UIColor(white: 0.95, alpha: 1.0).cgColor
-  public var speed: Double = 0.9
+  public var gradientColorOne: CGColor = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1).cgColor
+  public var gradientColorTwo: CGColor = UIColor.Zeplin.grayOpaque.cgColor
+  public var speed: Double = 1
 
   // MARK: Actions
   func addGradientLayer() -> CAGradientLayer {
@@ -27,18 +29,19 @@ public class YDShimmerView: UIView {
     return gradientLayer
   }
 
-  func addAnimation() -> CABasicAnimation {
+  func addAnimation(withDelay delay: Double = 0) -> CABasicAnimation {
     let animation = CABasicAnimation(keyPath: "locations")
     animation.fromValue = [-1.0, -0.5, 0.0]
     animation.toValue = [1.0, 1.5, 2.0]
     animation.repeatCount = .infinity
     animation.duration = speed
+    animation.beginTime = CFTimeInterval() + delay
     return animation
   }
 
-  public func startAnimating() {
+  public func startAnimating(withDelay delay: Double = 0) {
     let gradientLayer = addGradientLayer()
-    let animation = addAnimation()
+    let animation = addAnimation(withDelay: delay)
     gradientLayer.add(animation, forKey: animation.keyPath)
   }
 }
