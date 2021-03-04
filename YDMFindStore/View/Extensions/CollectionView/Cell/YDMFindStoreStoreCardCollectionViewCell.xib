@@ -73,7 +73,7 @@
                                     <constraint firstAttribute="height" constant="32" id="tDv-L6-kNC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="ver produtos">
+                                <state key="normal" title="comprar">
                                     <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
