@@ -21,7 +21,7 @@ PODS:
     - YDB2WAssets (= 1.0.31)
     - YDExtensions (= 1.0.38)
     - YDUtilities (= 1.0.10)
-  - YDB2WIntegration (1.0.15):
+  - YDB2WIntegration (1.0.16):
     - YDB2WModels
     - YDExtensions
   - YDB2WModels (1.0.13):
@@ -38,7 +38,7 @@ DEPENDENCIES:
   - curvyRoute
   - YDB2WAssets (= 1.0.31)
   - YDB2WComponents (= 1.0.71)
-  - YDB2WIntegration (= 1.0.15)
+  - YDB2WIntegration (= 1.0.16)
   - YDB2WModels (= 1.0.13)
   - YDExtensions (= 1.0.38)
   - YDLocationModule (= 1.0.5)
@@ -68,12 +68,12 @@ SPEC CHECKSUMS:
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   YDB2WAssets: ebc70c706037613128d99eab2eea7b19c9841830
   YDB2WComponents: fb6a10eb96c2509c68fa11075f36aa027e52a41c
-  YDB2WIntegration: 0deba88174dccd3fdd7bc85809978a56162c4cd4
+  YDB2WIntegration: 5a394bc24ed81108a05f47560954b7205d46503c
   YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
   YDExtensions: 7ece9b98667bce4d0df2e459df28e3547ecd465d
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
-PODFILE CHECKSUM: 889e12d57cdfe289bcc3986428cd61f5ef5055c0
+PODFILE CHECKSUM: 66df63226e6ce4a0e2a3e657604e7174ba8653e2
 
 COCOAPODS: 1.10.1

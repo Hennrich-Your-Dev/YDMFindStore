@@ -11,7 +11,7 @@ target 'YDMFindStore' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'YDB2WIntegration', '1.0.15'
+  pod 'YDB2WIntegration', '1.0.16'
   pod 'YDLocationModule', '1.0.5'
   pod 'YDUtilities', '1.0.10'
   pod 'YDExtensions', '1.0.38'
