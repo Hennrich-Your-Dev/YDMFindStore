@@ -15,7 +15,7 @@ target 'YDMFindStore' do
   pod 'YDLocationModule', '1.0.5'
   pod 'YDUtilities', '1.0.10'
   pod 'YDExtensions', '1.0.38'
-  pod 'YDB2WAssets', '1.0.31'
+  pod 'YDB2WAssets', '1.0.32'
   pod 'YDB2WComponents', '1.0.71'
   pod 'YDB2WModels', '1.0.13'
 

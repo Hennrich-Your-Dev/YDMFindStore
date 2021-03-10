@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.dependency "YDLocationModule", "1.0.5"
   spec.dependency "YDUtilities", "1.0.10"
   spec.dependency "YDExtensions", "1.0.38"
-  spec.dependency "YDB2WAssets", "1.0.31"
+  spec.dependency "YDB2WAssets", "1.0.32"
   spec.dependency "YDB2WComponents", "1.0.71"
   spec.dependency "YDB2WModels", "1.0.13"
 
