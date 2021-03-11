@@ -17,7 +17,7 @@ target 'YDMFindStore' do
   pod 'YDExtensions', '1.0.38'
   pod 'YDB2WAssets', '1.0.32'
   pod 'YDB2WComponents', '1.0.72'
-  pod 'YDB2WModels', '1.0.13'
+  pod 'YDB2WModels'
 
 
   pod 'Alamofire', '4.9.1'

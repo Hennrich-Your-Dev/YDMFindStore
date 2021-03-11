@@ -24,8 +24,9 @@ PODS:
   - YDB2WIntegration (1.0.16):
     - YDB2WModels
     - YDExtensions
-  - YDB2WModels (1.0.13):
+  - YDB2WModels (1.0.14):
     - YDExtensions
+    - YDUtilities
   - YDExtensions (1.0.38):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
@@ -39,7 +40,7 @@ DEPENDENCIES:
   - YDB2WAssets (= 1.0.32)
   - YDB2WComponents (= 1.0.72)
   - YDB2WIntegration (= 1.0.16)
-  - YDB2WModels (= 1.0.13)
+  - YDB2WModels
   - YDExtensions (= 1.0.38)
   - YDLocationModule (= 1.0.5)
   - YDUtilities (= 1.0.10)
@@ -69,11 +70,11 @@ SPEC CHECKSUMS:
   YDB2WAssets: 50bcde4765befb0a34afddd7bbcdfc5a3d7e9b0e
   YDB2WComponents: 31325c4e1d7007858230b9a2a78d0a5bbcc88090
   YDB2WIntegration: 5a394bc24ed81108a05f47560954b7205d46503c
-  YDB2WModels: a78b87e57a9299b480786a7b5bc337ce817a1e2d
+  YDB2WModels: 6475b090a17b9a44bb220eb9de25fa0e0344c874
   YDExtensions: 7ece9b98667bce4d0df2e459df28e3547ecd465d
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
   YDUtilities: 7e56ee0f48101c8bf487ad03135730dbefac70bf
 
-PODFILE CHECKSUM: f1a2a0dd440ed16b2f0332f10bf48cc8e15869a0
+PODFILE CHECKSUM: 4bdc1f4c82fd4249e82b08fc4924caa5d01ff90e
 
 COCOAPODS: 1.10.1
