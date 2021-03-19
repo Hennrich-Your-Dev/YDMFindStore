@@ -4,7 +4,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMFindStore"
-  spec.version      = "1.0.53"
+  spec.version      = "1.0.54"
   spec.summary      = "YDMFindStore."
   spec.homepage     = "http://yourdev/YDMFindStore"
 
@@ -16,13 +16,13 @@ Pod::Spec.new do |spec|
   spec.source_files     = "YDMFindStore/**/*.{h,m,swift,xib,storyboard}"
   spec.swift_version    = "5.0"
 
-  spec.dependency "YDB2WIntegration"
-  spec.dependency "YDLocationModule"
-  spec.dependency "YDUtilities"
-  spec.dependency "YDExtensions"
-  spec.dependency "YDB2WAssets"
-  spec.dependency "YDB2WComponents"
-  spec.dependency "YDB2WModels"
+  spec.dependency "YDB2WIntegration", "~> 1.0.19"
+  spec.dependency "YDLocationModule", "~> 1.0.5"
+  spec.dependency "YDUtilities", "~> 1.0.10"
+  spec.dependency "YDExtensions", "~> 1.0.42"
+  spec.dependency "YDB2WAssets", "~> 1.0.33"
+  spec.dependency "YDB2WComponents", "~> 1.0.82"
+  spec.dependency "YDB2WModels", "~> 1.0.16"
 
   spec.dependency "Alamofire", "4.9.1"
   spec.dependency "curvyRoute"
