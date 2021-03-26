@@ -16,8 +16,8 @@ target "YDMFindStore" do
   pod "YDUtilities", "~> 1.0.10"
   pod "YDExtensions", "~> 1.0.42"
   pod "YDB2WAssets", "~> 1.0.33"
-  pod "YDB2WComponents", "~> 1.0.82"
-  pod "YDB2WModels", "~> 1.0.16"
+  pod "YDB2WComponents", "~> 1.1.0"
+  pod "YDB2WModels", "~> 1.1.0"
 
   pod "Alamofire", "4.9.1"
   pod "curvyRoute"
