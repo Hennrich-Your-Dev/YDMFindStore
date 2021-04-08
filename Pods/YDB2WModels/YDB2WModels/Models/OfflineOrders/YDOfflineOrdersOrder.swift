@@ -54,7 +54,7 @@ public class YDOfflineOrdersOrder: Decodable {
   }
 
   public var formatedDate: String? {
-    return date?.date(withFormat: "yyyy-MM-dd'T'HH:mm:ss")?.toFormat("dd/MM/YYYY 'às' HH:mm'h'")
+    return date?.date(withFormat: "yyyy-MM-dd'T'HH:mm:ss")?.toFormat("dd/MM/YYYY")
   }
 
   public var formatedDateSection: String? {
@@ -76,6 +76,11 @@ public class YDOfflineOrdersOrder: Decodable {
     formatter.locale = Locale(identifier: "pt_BR")
 
     return formatter.string(from: NSNumber(value: total))
+  }
+
+  public var strippedNFe: String? {
+    guard let nfe = self.nfe else { return nil }
+    return String(nfe.dropFirst(3))
   }
 
   // MARK: Coding Keys

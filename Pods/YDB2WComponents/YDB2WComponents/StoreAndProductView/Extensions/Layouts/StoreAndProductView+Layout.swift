@@ -16,6 +16,10 @@ extension YDStoreAndProductView {
     createProductCardView()
     createSegmentedControl()
     createTextView()
+    createTableView()
+
+    // Shimmer
+    createTextViewShimmer()
   }
 
   // Store & Address
@@ -52,6 +56,7 @@ extension YDStoreAndProductView {
   // Product Info
   private func createProductCardView() {
     addSubview(productCardView)
+    productCardView.layer.shadowOpacity = 0
 
     productCardView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
@@ -81,13 +86,15 @@ extension YDStoreAndProductView {
     textView.textColor = UIColor.Zeplin.grayLight
     textView.font = .systemFont(ofSize: 14)
     textView.textAlignment = .left
-    textView.isHidden = true
+    textView.isEditable = false
+    textView.text = .loremIpsum()
+    textView.alwaysBounceVertical = true
     textView.delegate = self
     addSubview(textView)
 
     textView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      textView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 24),
+      textView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 18),
       textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
       textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
       textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
@@ -98,23 +105,71 @@ extension YDStoreAndProductView {
   private func createTableView() {
     tableView.backgroundColor = .clear
     tableView.tableFooterView = UIView()
+    tableView.separatorStyle = .none
     tableView.dataSource = self
     tableView.isHidden = true
     addSubview(tableView)
 
     tableView.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 24),
+      tableView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 18),
       tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
       tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
       tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
     ])
 
-    tableView.rowHeight = 66
+    tableView.estimatedRowHeight = 66
 
     tableView.register(
       StoreAndProductTableViewCell.self,
       forCellReuseIdentifier: StoreAndProductTableViewCell.identifier
     )
+
+    tableView.reloadData()
+  }
+}
+
+// MARK: Shimmer Layout
+extension YDStoreAndProductView {
+  func createTextViewShimmer() {
+    shimmerTextView.isHidden = true
+    addSubview(shimmerTextView)
+
+    shimmerTextView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      shimmerTextView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 18),
+      shimmerTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+      shimmerTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+      shimmerTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
+    ])
+
+    let firstView = UIView()
+    firstView.backgroundColor = .white
+    firstView.layer.cornerRadius = 4
+    shimmerTextView.addSubview(firstView)
+
+    firstView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      firstView.topAnchor.constraint(equalTo: shimmerTextView.topAnchor),
+      firstView.leadingAnchor.constraint(equalTo: shimmerTextView.leadingAnchor),
+      firstView.trailingAnchor.constraint(equalTo: shimmerTextView.trailingAnchor),
+      firstView.heightAnchor.constraint(equalToConstant: 13)
+    ])
+
+    let secoundView = UIView()
+    secoundView.backgroundColor = .white
+    secoundView.layer.cornerRadius = 4
+    shimmerTextView.addSubview(secoundView)
+
+    secoundView.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      secoundView.topAnchor.constraint(equalTo: firstView.bottomAnchor, constant: 6),
+      secoundView.leadingAnchor.constraint(equalTo: shimmerTextView.leadingAnchor),
+      secoundView.trailingAnchor.constraint(
+        equalTo: shimmerTextView.trailingAnchor,
+        constant: -50
+      ),
+      secoundView.heightAnchor.constraint(equalToConstant: 13)
+    ])
   }
 }
