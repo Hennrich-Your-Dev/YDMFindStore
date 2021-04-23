@@ -28,6 +28,8 @@
 		C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */; };
 		C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */; };
 		C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */; };
+		C192FB3C2632765A009AB396 /* YDMFindStoreViewController+Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192FB3B2632765A009AB396 /* YDMFindStoreViewController+Layouts.swift */; };
+		C192FB402632774F009AB396 /* HeaderFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C192FB3F2632774F009AB396 /* HeaderFooterCollectionReusableView.swift */; };
 		C1A27598258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A27597258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		C192D8EE25824CA500CDEC56 /* YDMFindStoreViewController+Binds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Binds.swift"; sourceTree = "<group>"; };
 		C192DA0B2582B43E00CDEC56 /* CustomLargerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLargerAnnotation.swift; sourceTree = "<group>"; };
 		C192DA0F2582BBB800CDEC56 /* CustomSmallAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSmallAnnotation.swift; sourceTree = "<group>"; };
+		C192FB3B2632765A009AB396 /* YDMFindStoreViewController+Layouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewController+Layouts.swift"; sourceTree = "<group>"; };
+		C192FB3F2632774F009AB396 /* HeaderFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderFooterCollectionReusableView.swift; sourceTree = "<group>"; };
 		C1A27597258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewModel+Enums.swift"; sourceTree = "<group>"; };
 		EABD1A139486CCE5D45BE642 /* Pods_YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,8 +111,8 @@
 		C10DD2972583CA4700A4F7AB /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				C10DD29C2583CBA900A4F7AB /* Cell */,
 				C10DD2992583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift */,
+				C10DD29C2583CBA900A4F7AB /* Cell */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -124,6 +128,7 @@
 		C10DD29D2583CBB000A4F7AB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C192FB3A26327645009AB396 /* Layout */,
 				C10DD29E2583CBB500A4F7AB /* CollectionView */,
 			);
 			path = Extensions;
@@ -141,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				C10DD2A12583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib */,
+				C192FB3F2632774F009AB396 /* HeaderFooterCollectionReusableView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -319,6 +325,14 @@
 			path = CustomAnnotation;
 			sourceTree = "<group>";
 		};
+		C192FB3A26327645009AB396 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C192FB3B2632765A009AB396 /* YDMFindStoreViewController+Layouts.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		C1A27596258B920D005740F9 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,7 +472,9 @@
 				C1608A6525800FBD0047444E /* YDMFindStoreViewController+Location.swift in Sources */,
 				C15556C92571C02800CAEDE8 /* YDMFindStoreViewController.swift in Sources */,
 				C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */,
+				C192FB3C2632765A009AB396 /* YDMFindStoreViewController+Layouts.swift in Sources */,
 				C10DD29A2583CACB00A4F7AB /* YDMFindStoreViewController+CollectionView.swift in Sources */,
+				C192FB402632774F009AB396 /* HeaderFooterCollectionReusableView.swift in Sources */,
 				C15556D52571C27500CAEDE8 /* YDMFindStoreViewController+Map.swift in Sources */,
 				A580599E25AA3FCE00C08A4D /* YDMFindStorePreStartViewController.swift in Sources */,
 			);
