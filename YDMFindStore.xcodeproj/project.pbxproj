@@ -263,9 +263,9 @@
 		C15556C72571C01700CAEDE8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C15556C82571C02800CAEDE8 /* YDMFindStoreViewController.swift */,
 				C15556D22571C25700CAEDE8 /* Extensions */,
 				A5805A0F25AB0F5800C08A4D /* PreStart */,
-				C15556C82571C02800CAEDE8 /* YDMFindStoreViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
