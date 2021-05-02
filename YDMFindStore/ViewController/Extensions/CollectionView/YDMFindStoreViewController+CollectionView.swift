@@ -10,7 +10,7 @@ import UIKit
 import YDExtensions
 
 // MARK: Data Source
-extension YDMFindStoreViewController: UICollectionViewDataSource {
+extension YDMFindStoreViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     guard let stores = viewModel?.stores.value else {
       if collectionView == self.collectionView {
@@ -70,6 +70,14 @@ extension YDMFindStoreViewController: UICollectionViewDataSource {
     default:
       fatalError("Header Section")
     }
+  }
+
+  func collectionView(
+    _ collectionView: UICollectionView,
+    layout collectionViewLayout: UICollectionViewLayout,
+    sizeForItemAt indexPath: IndexPath
+  ) -> CGSize {
+    return CGSize(width: cardWidthSize, height: 130)
   }
 }
 
