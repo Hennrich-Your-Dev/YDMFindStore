@@ -31,6 +31,15 @@ class YDMFindStoreViewController: UIViewController {
 
     return view.frame.size.width - margin
   }()
+  lazy var verticalCardWidthSize: CGFloat = {
+    var margin: CGFloat = 30
+
+    if UIDevice.iPhone5 {
+      margin = 10
+    }
+
+    return view.frame.size.width - margin
+  }()
 
   // MARK: Components
   let blurView = UIVisualEffectView()

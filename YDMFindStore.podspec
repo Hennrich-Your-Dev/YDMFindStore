@@ -4,7 +4,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMFindStore"
-  spec.version      = "1.1.6"
+  spec.version      = "1.1.7"
   spec.summary      = "YDMFindStore."
   spec.homepage     = "http://yourdev/YDMFindStore"
 
