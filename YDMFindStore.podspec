@@ -4,7 +4,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YDMFindStore"
-  spec.version      = "1.1.7"
+  spec.version      = "1.1.8"
   spec.summary      = "YDMFindStore."
   spec.homepage     = "http://yourdev/YDMFindStore"
 
@@ -18,11 +18,13 @@ Pod::Spec.new do |spec|
 
   spec.dependency "YDB2WIntegration", "~> 1.1.0"
   spec.dependency "YDLocationModule", "~> 1.0.5"
-  spec.dependency "YDUtilities", "~> 1.0.10"
+  spec.dependency "YDUtilities", "~> 1.1.0"
   spec.dependency "YDExtensions", "~> 1.0.42"
   spec.dependency "YDB2WAssets", "~> 1.0.33"
   spec.dependency "YDB2WComponents", "~> 1.1.0"
   spec.dependency "YDB2WModels", "~> 1.1.0"
+  spec.dependency "YDB2WServices", "~> 1.1.0"
+  spec.dependency "YDB2WDeepLinks", "~> 1.0.0"
 
   spec.dependency "Alamofire", "4.9.1"
   spec.dependency "curvyRoute"

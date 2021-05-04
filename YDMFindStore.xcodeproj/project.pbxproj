@@ -15,9 +15,6 @@
 		C10DD2A22583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10DD2A02583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.swift */; };
 		C10DD2A32583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C10DD2A12583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib */; };
 		C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */; };
-		C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */; };
-		C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */; };
-		C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13514C5258111130018EA0E /* YDMFindStoreService.swift */; };
 		C15556822571B84400CAEDE8 /* YDMFindStore.h in Headers */ = {isa = PBXBuildFile; fileRef = C15556802571B84400CAEDE8 /* YDMFindStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C15556B02571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15556AF2571BDD800CAEDE8 /* YDMFindStoreCoordinator.swift */; };
 		C15556C52571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C15556C42571BFDA00CAEDE8 /* YDMFindStoreViewController.storyboard */; };
@@ -43,9 +40,6 @@
 		C10DD2A02583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreStoreCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		C10DD2A12583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YDMFindStoreStoreCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		C1351486258068040018EA0E /* YDMFindStoreViewModel+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YDMFindStoreViewModel+Location.swift"; sourceTree = "<group>"; };
-		C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderViewModel.swift; sourceTree = "<group>"; };
-		C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreReverseGeocoderService.swift; sourceTree = "<group>"; };
-		C13514C5258111130018EA0E /* YDMFindStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YDMFindStoreService.swift; sourceTree = "<group>"; };
 		C155567D2571B84400CAEDE8 /* YDMFindStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YDMFindStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C15556802571B84400CAEDE8 /* YDMFindStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YDMFindStore.h; sourceTree = "<group>"; };
 		C15556812571B84400CAEDE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,46 +162,13 @@
 			path = Location;
 			sourceTree = "<group>";
 		};
-		C13514A2258106E20018EA0E /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C13514C4258110EA0018EA0E /* FindStore */,
-				C13514A3258106FC0018EA0E /* Geocoder */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		C13514A3258106FC0018EA0E /* Geocoder */ = {
-			isa = PBXGroup;
-			children = (
-				C13514C125810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift */,
-			);
-			path = Geocoder;
-			sourceTree = "<group>";
-		};
-		C13514C4258110EA0018EA0E /* FindStore */ = {
-			isa = PBXGroup;
-			children = (
-				C13514C5258111130018EA0E /* YDMFindStoreService.swift */,
-			);
-			path = FindStore;
-			sourceTree = "<group>";
-		};
 		C13514DA2581181D0018EA0E /* FindStore */ = {
 			isa = PBXGroup;
 			children = (
-				C1351484258067990018EA0E /* Extensions */,
 				C15556CD2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift */,
+				C1351484258067990018EA0E /* Extensions */,
 			);
 			path = FindStore;
-			sourceTree = "<group>";
-		};
-		C13514DC2581182C0018EA0E /* Geocoder */ = {
-			isa = PBXGroup;
-			children = (
-				C135148925806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift */,
-			);
-			path = Geocoder;
 			sourceTree = "<group>";
 		};
 		C15556732571B84400CAEDE8 = {
@@ -232,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				C15556AE2571BDC200CAEDE8 /* Coordinator */,
-				C13514A2258106E20018EA0E /* Service */,
 				C15556C32571BF9400CAEDE8 /* View */,
 				C15556C72571C01700CAEDE8 /* ViewController */,
 				C15556CC2571C09E00CAEDE8 /* ViewModel */,
@@ -275,7 +235,6 @@
 			children = (
 				A5805A1325AB613400C08A4D /* PreStart */,
 				C13514DA2581181D0018EA0E /* FindStore */,
-				C13514DC2581182C0018EA0E /* Geocoder */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -458,13 +417,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C13514C225810DDF0018EA0E /* YDMFindStoreReverseGeocoderService.swift in Sources */,
 				C192DA102582BBB800CDEC56 /* CustomSmallAnnotation.swift in Sources */,
 				C10DD2A22583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.swift in Sources */,
 				C15556CE2571C0AA00CAEDE8 /* YDMFindStoreViewModel.swift in Sources */,
-				C13514C6258111130018EA0E /* YDMFindStoreService.swift in Sources */,
 				C1351487258068040018EA0E /* YDMFindStoreViewModel+Location.swift in Sources */,
-				C135148A25806A350018EA0E /* YDMFindStoreReverseGeocoderViewModel.swift in Sources */,
 				C192D8EF25824CA600CDEC56 /* YDMFindStoreViewController+Binds.swift in Sources */,
 				C192DA0C2582B43E00CDEC56 /* CustomLargerAnnotation.swift in Sources */,
 				C1A27598258B9221005740F9 /* YDMFindStoreViewModel+Enums.swift in Sources */,
