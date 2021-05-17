@@ -13,10 +13,18 @@ import YDExtensions
 
 extension YDMFindStoreViewController {
   func setUpBinds() {
+    viewModel?.loading.bind { [weak self] isLoading in
+      guard let self = self else { return }
 
-//    viewModel?.loading.bind { [weak self] isLoading in
-//      isLoading ? self?.view.startLoader() : self?.view.stopLoader()
-//    }
+      if isLoading {
+        self.showErrorView(hide: true)
+      }
+    }
+
+    viewModel?.error.bind { [weak self] _ in
+      guard let self = self else { return }
+      self.showErrorView(hide: false)
+    }
 
     viewModel?.location.bind { [weak self] location in
       self?.locationActivity(show: false)
@@ -24,10 +32,6 @@ extension YDMFindStoreViewController {
       guard let self = self,
         let location = location
         else { return }
-
-      if let coords = location.location {
-        self.zoomToPosition(coords)
-      }
 
       if let address = location.address,
         !address.isEmpty {
@@ -42,20 +46,27 @@ extension YDMFindStoreViewController {
         let nearstStoreCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 
         self.setMapCenterBetween(positionA: userCoords, positionB: nearstStoreCoords)
+      } else if let coords = location.location {
+        self.zoomToPosition(coords)
       }
     }
 
     viewModel?.stores.bind { [weak self] stores in
       guard let self = self else { return }
-      self.addPinsOnMap(with: stores)
-      self.collectionView.reloadData()
-      self.verticalCollectionView.reloadData()
-      self.collectionView.scrollToItem(
-        at: IndexPath(row: 0, section: 0),
-        at: .centeredHorizontally,
-        animated: true
-      )
-      self.formatHowManyStoresOnList(with: stores.count)
+
+      DispatchQueue.main.async {
+        self.storesListContainer.isHidden = false
+        self.myLocationButton.isHidden = false
+        self.addPinsOnMap(with: stores)
+        self.collectionView.reloadData()
+        self.verticalCollectionView.reloadData()
+        self.collectionView.scrollToItem(
+          at: IndexPath(row: 0, section: 0),
+          at: .centeredHorizontally,
+          animated: true
+        )
+        self.formatHowManyStoresOnList(with: stores.count)
+      }
     }
   }
 }

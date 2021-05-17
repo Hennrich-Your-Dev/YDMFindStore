@@ -12,6 +12,7 @@ import CoreLocation
 import YDB2WAssets
 import YDUtilities
 import YDExtensions
+import YDB2WComponents
 
 class YDMFindStoreViewController: UIViewController {
   // MARK: Properties
@@ -49,6 +50,8 @@ class YDMFindStoreViewController: UIViewController {
     frame: .zero,
     collectionViewLayout: UICollectionViewLayout()
   )
+  let errorView = UIView()
+  let errorViewActionButton = YDWireButton(withTitle: "atualizar")
 
   // MARK: IBOutlets
   @IBOutlet weak var mapView: MKMapView! {
@@ -168,11 +171,12 @@ class YDMFindStoreViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    createMapGradient()
-    createVerticalListLayout()
+    configureLayout()
     setUpBinds()
 
-    collectionView.reloadData()
+    storesListContainer.isHidden = true
+    myLocationButton.isHidden = true
+
     locationActivity()
     viewModel?.getPreviousAddress()
   }
@@ -257,5 +261,20 @@ extension YDMFindStoreViewController {
       format: howManyStoresLabel.text ?? "",
       howMany
     )
+  }
+
+  func onErrorActionButton(_ sender: UIButton) {
+    viewModel?.refreshRequest()
+  }
+
+  func showErrorView(hide: Bool = false) {
+    DispatchQueue.main.async { [weak self] in
+      guard let self = self else { return }
+
+      self.errorView.isHidden = hide
+      self.listButton.isEnabled = hide
+      self.myLocationButton.isHidden = !hide
+      self.storesListContainer.isHidden = !hide
+    }
   }
 }
