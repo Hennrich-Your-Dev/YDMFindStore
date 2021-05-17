@@ -146,6 +146,7 @@ extension YDMFindStoreViewController {
   func createHowManyStoresVertical() {
     verticalListContainer.addSubview(howManyStoresVerticalLabel)
 
+    howManyStoresVerticalLabel.isHidden = true
     howManyStoresVerticalLabel.font = .boldSystemFont(ofSize: 17)
     howManyStoresVerticalLabel.text = "%d Americanas perto de você"
     howManyStoresVerticalLabel.textColor = .white

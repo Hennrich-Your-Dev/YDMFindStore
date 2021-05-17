@@ -139,8 +139,8 @@
 		C10DD29F2583CBB900A4F7AB /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C10DD2A12583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib */,
 				C192FB3F2632774F009AB396 /* HeaderFooterCollectionReusableView.swift */,
+				C10DD2A12583D20A00A4F7AB /* YDMFindStoreStoreCardCollectionViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

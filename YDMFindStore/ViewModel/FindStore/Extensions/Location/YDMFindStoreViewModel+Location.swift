@@ -67,11 +67,7 @@ extension YDMFindStoreViewModel {
             store: list.stores.first
           )
 
-          if list.stores.isEmpty {
-            self.error.fire()
-          } else {
-            self.stores.value = list.stores
-          }
+          self.stores.value = list.stores
 
         case .failure(let error):
           self.location.fire()

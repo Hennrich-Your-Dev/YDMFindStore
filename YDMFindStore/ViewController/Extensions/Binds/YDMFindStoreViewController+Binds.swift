@@ -10,6 +10,7 @@ import CoreLocation
 
 import YDUtilities
 import YDExtensions
+import YDB2WComponents
 
 extension YDMFindStoreViewController {
   func setUpBinds() {
@@ -55,6 +56,18 @@ extension YDMFindStoreViewController {
       guard let self = self else { return }
 
       DispatchQueue.main.async {
+        if stores.isEmpty {
+          let snack = YDSnackBarView(parent: self.view)
+          snack.topValue = 20
+          snack.showMessage(
+            "Ops! Nossas lojas ainda vão chegar na região escolhida :)",
+            ofType: .withButton(buttonName: "ok, entendi")
+          )
+
+          self.listButton.isEnabled = false
+          return
+        }
+
         self.storesListContainer.isHidden = false
         self.myLocationButton.isHidden = false
         self.addPinsOnMap(with: stores)

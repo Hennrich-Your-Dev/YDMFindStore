@@ -178,7 +178,11 @@ class YDMFindStoreViewController: UIViewController {
     myLocationButton.isHidden = true
 
     locationActivity()
-    viewModel?.getPreviousAddress()
+
+    Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] _ in
+      guard let self = self else { return }
+      self.viewModel?.getPreviousAddress()
+    }
   }
 
   deinit {
@@ -261,6 +265,9 @@ extension YDMFindStoreViewController {
       format: howManyStoresLabel.text ?? "",
       howMany
     )
+
+    howManyStoresLabel.isHidden = false
+    howManyStoresVerticalLabel.isHidden = false
   }
 
   func onErrorActionButton(_ sender: UIButton) {
