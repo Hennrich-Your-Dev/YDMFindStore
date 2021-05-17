@@ -24,7 +24,7 @@ class YDMFindStoreViewController: UIViewController {
   var currentStoreIndex = 0
   var showingVerticalList = false
   lazy var cardWidthSize: CGFloat = {
-    var margin: CGFloat = 71
+    var margin: CGFloat = 41
 
     if UIDevice.iPhone5 {
       margin = 20
@@ -33,7 +33,7 @@ class YDMFindStoreViewController: UIViewController {
     return view.frame.size.width - margin
   }()
   lazy var verticalCardWidthSize: CGFloat = {
-    var margin: CGFloat = 30
+    var margin: CGFloat = 32
 
     if UIDevice.iPhone5 {
       margin = 20

@@ -106,7 +106,6 @@ class YDMFindStoreStoreCardCollectionViewCell: UICollectionViewCell {
     self.store = store
 
     storeLabel.text = store.name
-    storeLabel.sizeToFit()
     addressLabel.text = store.formatAddress
     distanceLabel.text = store.formatDistance
 
