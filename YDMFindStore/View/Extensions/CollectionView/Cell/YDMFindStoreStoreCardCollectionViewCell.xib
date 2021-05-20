@@ -131,9 +131,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dkn-tp-7Yd">
-                                <rect key="frame" x="235.5" y="116" width="87" height="32"/>
+                                <rect key="frame" x="235.5" y="116" width="90" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="87" id="Qpu-6r-Ohw"/>
+                                    <constraint firstAttribute="width" constant="90" id="Qpu-6r-Ohw"/>
                                     <constraint firstAttribute="height" constant="32" id="y6X-j8-Lbc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>

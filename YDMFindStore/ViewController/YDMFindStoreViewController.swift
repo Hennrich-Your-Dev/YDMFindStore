@@ -237,17 +237,20 @@ class YDMFindStoreViewController: UIViewController {
        let latitude = firstStoreCoords.latitude,
        let longitude = firstStoreCoords.longitude {
 
-      let nearstStoreCoords = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+      let nearstStoreCoords = CLLocationCoordinate2D(
+        latitude: latitude,
+        longitude: longitude
+      )
       setMapCenterBetween(positionA: userCoords, positionB: nearstStoreCoords)
 
       // To make list scroll to first item
-      do {
-        collectionView.scrollToItem(
-          at: IndexPath(row: 0, section: 0),
-          at: .centeredHorizontally,
-          animated: true
-        )
-      }
+      collectionView.scrollToItem(
+        at: IndexPath(row: 0, section: 0),
+        at: .centeredHorizontally,
+        animated: true
+      )
+
+      redrawPins(highlightAt: 0, shouldCenterMap: false)
 
     } else {
       let span = mapView.region.span
