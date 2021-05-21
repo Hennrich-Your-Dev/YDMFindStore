@@ -262,7 +262,7 @@ class YDMFindStoreViewController: UIViewController {
 // MARK: Actions
 extension YDMFindStoreViewController {
   func formatHowManyStoresOnList(with howMany: Int) {
-    howManyStoresLabel.text = String(format: howManyStoresLabel.text ?? "", howMany)
+    howManyStoresLabel.text = "\(howMany) Americanas perto de você"
 
     howManyStoresVerticalLabel.text = String(
       format: howManyStoresLabel.text ?? "",
