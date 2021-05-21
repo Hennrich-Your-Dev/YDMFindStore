@@ -65,6 +65,7 @@ extension YDMFindStoreViewController {
           )
 
           self.listButton.isEnabled = false
+          self.storesListContainer.isHidden = true
           return
         }
 
