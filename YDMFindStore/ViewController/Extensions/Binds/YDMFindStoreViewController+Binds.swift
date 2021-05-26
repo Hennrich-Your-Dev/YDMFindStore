@@ -60,7 +60,7 @@ extension YDMFindStoreViewController {
           let snack = YDSnackBarView(parent: self.view)
           snack.topValue = 20
           snack.showMessage(
-            "Ops! Nossas lojas ainda vão chegar na região escolhida :)",
+            "Ainda não há lojas nessa região. Que tal tentar outro endereço?",
             ofType: .withButton(buttonName: "ok, entendi")
           )
 

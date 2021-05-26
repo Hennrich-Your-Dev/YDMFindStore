@@ -61,10 +61,10 @@ public class YDStore: Decodable {
 
     if let start = todayStruct.start {
       if let end = todayStruct.end {
-        return "\(start) ás \(end)"
+        return "\(start.replacingOccurrences(of: ":", with: "h")) às \(end.replacingOccurrences(of: ":", with: "h"))"
       }
 
-      return "A partir das \(start)"
+      return "A partir das \(start.replacingOccurrences(of: ":", with: "h"))"
     }
 
     return ""
