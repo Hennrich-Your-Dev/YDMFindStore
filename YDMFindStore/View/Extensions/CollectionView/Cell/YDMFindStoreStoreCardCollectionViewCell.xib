@@ -168,6 +168,11 @@
                             <constraint firstItem="sD0-PJ-5wi" firstAttribute="leading" secondItem="YEl-As-RTY" secondAttribute="trailing" constant="16" id="ryP-0g-WSy"/>
                             <constraint firstItem="1ts-he-NVq" firstAttribute="centerY" secondItem="Bp6-pK-oXl" secondAttribute="centerY" id="uE9-Xs-r2a"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Dkn-tp-7Yd"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
             </view>
