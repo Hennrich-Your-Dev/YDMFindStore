@@ -116,7 +116,7 @@ extension YDMFindStoreViewModel: YDLocationDelegate {
             givingType: .location
           )
 
-          integration.setNewAddress(
+          self.integration.setNewAddress(
             withCoords: location.coordinate,
             withAddress: address.formatAddress,
             withType: .location
