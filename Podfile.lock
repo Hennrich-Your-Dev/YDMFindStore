@@ -17,44 +17,46 @@ PODS:
   - libwebp/mux (1.2.0):
     - libwebp/demux
   - libwebp/webp (1.2.0)
-  - YDB2WAssets (1.3.1)
-  - YDB2WComponents (1.3.10):
+  - YDB2WAssets (1.4.10)
+  - YDB2WComponents (1.4.40):
     - Cosmos
-    - YDB2WAssets (~> 1.3.0)
-    - YDB2WModels (~> 1.3.0)
-    - YDExtensions (~> 1.3.0)
-    - YDUtilities (~> 1.3.0)
-  - YDB2WDeepLinks (1.3.1):
-    - YDExtensions (~> 1.3.0)
-  - YDB2WIntegration (1.3.4):
-    - YDB2WModels (~> 1.3.0)
-    - YDExtensions (~> 1.3.0)
-  - YDB2WModels (1.3.12):
-    - YDExtensions (~> 1.3.0)
-    - YDUtilities (~> 1.3.0)
-  - YDB2WServices (1.3.1):
+    - YDB2WAssets (~> 1.4.0)
+    - YDB2WModels (~> 1.4.0)
+    - YDExtensions (~> 1.4.0)
+    - YDUtilities (~> 1.4.0)
+  - YDB2WDeepLinks (1.4.5):
+    - YDExtensions (~> 1.4.0)
+  - YDB2WIntegration (1.4.8):
+    - YDB2WModels (~> 1.4.0)
+    - YDExtensions (~> 1.4.0)
+  - YDB2WModels (1.4.23):
+    - YDExtensions (~> 1.4.0)
+  - YDB2WServices (1.4.4):
     - Alamofire (~> 4.0)
-    - YDB2WIntegration (~> 1.3.0)
-    - YDB2WModels (~> 1.3.0)
-  - YDExtensions (1.3.1):
+    - YDB2WIntegration (~> 1.4.0)
+    - YDB2WModels (~> 1.4.0)
+    - YDUtilities (~> 1.4.0)
+  - YDExtensions (1.4.2):
     - Kingfisher (~> 5.0)
     - KingfisherWebP (= 1.0.0)
   - YDLocationModule (1.0.5)
-  - YDUtilities (1.3.0):
+  - YDUtilities (1.4.2):
     - Alamofire (~> 4.0)
+    - YDB2WModels (~> 1.4.0)
+    - YDExtensions (~> 1.4.0)
 
 DEPENDENCIES:
   - Alamofire (= 4.9.1)
   - curvyRoute
-  - YDB2WAssets (~> 1.3.0)
-  - YDB2WComponents (~> 1.3.0)
-  - YDB2WDeepLinks (~> 1.3.0)
-  - YDB2WIntegration (~> 1.3.0)
-  - YDB2WModels (~> 1.3.0)
-  - YDB2WServices (~> 1.3.0)
-  - YDExtensions (~> 1.3.0)
+  - YDB2WAssets (~> 1.4.0)
+  - YDB2WComponents (~> 1.4.0)
+  - YDB2WDeepLinks (~> 1.4.0)
+  - YDB2WIntegration (~> 1.4.0)
+  - YDB2WModels (~> 1.4.0)
+  - YDB2WServices (~> 1.4.0)
+  - YDExtensions (~> 1.4.0)
   - YDLocationModule (~> 1.0.5)
-  - YDUtilities (~> 1.3.0)
+  - YDUtilities (~> 1.4.0)
 
 SPEC REPOS:
   "git@github.com:Hennrich-Your-Dev/YourDev-Pods.git":
@@ -82,16 +84,16 @@ SPEC CHECKSUMS:
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   KingfisherWebP: b1ed1dbc5e52547c5bf5f583dd5c46346f97320f
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
-  YDB2WAssets: 264e08acb4a62f3f79ec5b920e0bdf3d45e57c43
-  YDB2WComponents: 35e53f6e5729ec48aee342f0220cf9271f062099
-  YDB2WDeepLinks: 47e1fda472d418fa02df38ffa556a8290fa680e8
-  YDB2WIntegration: 884efe5ddf0412ffcb0d0defaa24e67f5eee2cdd
-  YDB2WModels: 0b9f31379091679eb7605c0243c6ec0959393cb4
-  YDB2WServices: 718e0edb2751206a37842fda207abe2f5c97f0b2
-  YDExtensions: 7c52103615ceb945339af861e2c90516af926bf4
+  YDB2WAssets: f22c30c0b776fe29a73a1ed0738c1649c016916c
+  YDB2WComponents: 08697860af2c1e8bd32e18fca86a7996b836827d
+  YDB2WDeepLinks: e5b73d26f048cc2349631dd844602a1b31b09176
+  YDB2WIntegration: efa2edc589a08703ff3cecff41fa61f07c9d020b
+  YDB2WModels: e93133f0449880c1f4596ef1456dd3529fd11d68
+  YDB2WServices: f5a135c3a377046f850d658d1b367f2c27b9a5d0
+  YDExtensions: fa093c67b72c07da4621a8132e79a1e84d9eed15
   YDLocationModule: 35cddec317442e18078cb64e1542d7cd360ccb43
-  YDUtilities: eece03b4133d2860eb9fb152a64a7e1358b01a35
+  YDUtilities: f0c09ed480ebfc3596ac17bf95e142a6d837e01e
 
-PODFILE CHECKSUM: ddaf3465bec2308e12b8b5079acd95ad63c52a7d
+PODFILE CHECKSUM: cd6c56b21609457bb6239fc38a756c825e3fb142
 
 COCOAPODS: 1.10.1

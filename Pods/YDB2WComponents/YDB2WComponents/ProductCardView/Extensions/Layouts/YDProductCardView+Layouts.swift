@@ -17,8 +17,15 @@ extension YDProductCardView {
     createContainerView()
     createPhotoImageView()
     createProductNameLabel()
-    createValueLabel()
-    createRatingView()
+
+    if itsOnline {
+      createBuyButton()
+      createShippingLabel()
+      createValueLabel()
+    } else {
+      createValueLabel()
+      createRatingView()
+    }
 
     // Shimmer
     createShimmerContainerView()
@@ -109,19 +116,58 @@ extension YDProductCardView {
 
     productPriceLabel.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      productPriceLabel.bottomAnchor.constraint(equalTo: photoImageMask.bottomAnchor),
       productPriceLabel.leadingAnchor.constraint(
         equalTo: photoImageMask.trailingAnchor,
         constant: 16
       ),
-      productPriceLabel.trailingAnchor.constraint(
-        equalTo: container.trailingAnchor,
-        constant: -8
-      ),
       productPriceLabel.heightAnchor.constraint(equalToConstant: 24)
     ])
 
+    if itsOnline {
+      productPriceLabel.topAnchor
+        .constraint(equalTo: productNameLabel.bottomAnchor, constant: 10).isActive = true
+      productPriceLabel.trailingAnchor
+        .constraint(equalTo: buyButton.leadingAnchor, constant: -4).isActive = true
+    } else {
+      productPriceLabel.bottomAnchor
+        .constraint(equalTo: photoImageMask.bottomAnchor).isActive = true
+      productPriceLabel.trailingAnchor
+        .constraint(equalTo: container.trailingAnchor, constant: -8).isActive = true
+    }
+
     productPriceLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+  }
+
+  private func createShippingLabel() {
+    container.addSubview(shippingLabel)
+    shippingLabel.font = .systemFont(ofSize: 13)
+    shippingLabel.textColor = Zeplin.grayLight
+    shippingLabel.textAlignment = .left
+    shippingLabel.text = "consulte o valor do frete"
+
+    shippingLabel.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      shippingLabel.topAnchor.constraint(equalTo: productPriceLabel.bottomAnchor, constant: 6),
+      shippingLabel.leadingAnchor
+        .constraint(equalTo: photoImageMask.trailingAnchor, constant: 16),
+      shippingLabel.trailingAnchor.constraint(equalTo: buyButton.leadingAnchor, constant: -4)
+    ])
+  }
+
+  private func createBuyButton() {
+    container.addSubview(buyButton)
+    buyButton.setTitle("comprar", for: .normal)
+    buyButton.setTitleColor(Zeplin.redBranding, for: .normal)
+    buyButton.layer.borderWidth = 1.5
+    buyButton.layer.borderColor = Zeplin.redBranding.cgColor
+    buyButton.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      buyButton.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 16),
+      buyButton.widthAnchor.constraint(equalToConstant: 69),
+      buyButton.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -22),
+      buyButton.heightAnchor.constraint(equalToConstant: 38)
+    ])
   }
 
   private func createRatingView() {
