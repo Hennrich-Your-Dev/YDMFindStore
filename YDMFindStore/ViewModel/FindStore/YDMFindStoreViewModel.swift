@@ -82,6 +82,7 @@ extension YDMFindStoreViewModel: YDMFindStoreViewModelDelegate {
 
   func trackMetric() {
     integration.trackEvent(withName: .findStoreView, ofType: .state)
+    integration.trackEvent(withName: .findStore, ofType: .state)
   }
 
   func getPreviousAddress() {
